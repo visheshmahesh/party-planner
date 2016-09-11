@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
 
 <!DOCTYPE html>
 
@@ -6,26 +6,31 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body onload="resetForm()">
     <form id="form1" runat="server">
     <div>
-          <fieldset>
-            <legend>SIGN IN</legend>
-                  <asp:TextBox ID="TxtUserName" runat="server" Name="TxtUserName" placeHolder="Username"></asp:TextBox>
-                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorname" runat="server" ErrorMessage="Username is required" ControlToValidate="TxtUserName" ForeColor="red"></asp:RequiredFieldValidator>
-        <br />
-                      <br />
-                      <br />
-                   <asp:TextBox ID="TxtPassword" type="password" runat="server" Name="TxtPassword" placeHolder="password"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="password is required" ControlToValidate="TxtPassword" ForeColor="red"></asp:RequiredFieldValidator>
-        <br />
-        <br />
-        <br />
-                  
-            <asp:Button ID="Button1" runat="server" Text="SIGN IN" OnClick="Button1_Click" />
-        </fieldset>
-    
+        <p>
+            <asp:Label ID="lblEnterEmail" runat="server" Text="Enter Email" ></asp:Label>
+            <asp:TextBox ID="tbxEnterEmail" runat="server" type="email"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ControlToValidate="tbxEnterEmail" ErrorMessage="Incorrect Email" ForeColor="Red"></asp:RequiredFieldValidator>
+        </p>
+        <p>
+            <asp:Label ID="lblEnterPassword" runat="server" Text="Enter Password" ></asp:Label>
+            <asp:TextBox ID="tbxEnterPassword" runat="server" type="password"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorPassword" runat="server" ControlToValidate="tbxEnterEmail" ErrorMessage="Incorrect Password" ForeColor="Red"></asp:RequiredFieldValidator>
+        </p>
+        <p>
+            <asp:Button ID="btnLogin" runat="server" text="LOGIN" OnClick="btnLogin_Click" />
+        </p>
     </div>
     </form>
+    <script>
+        function resetForm()
+        {
+            document.getElementById("tbxEnterEmail").value = "";
+            document.getElementById("tbxEnterPassword").value = "";
+        }
+     </script>
+           
 </body>
 </html>
