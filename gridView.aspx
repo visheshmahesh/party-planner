@@ -10,17 +10,17 @@
     <form id="form1" runat="server">
        
         <div>
-            <asp:GridView ID="GridViewData" runat="server" AllowPaging="False" AutoGenerateColumns="false" >
+            <asp:GridView ID="GridViewData" runat="server" AllowPaging="False" AutoGenerateColumns="false" OnRowCommand="GridViewData_RowCommand" OnRowDeleting="GridViewData_DeleteRow" OnRowUpdating="GridViewData_UpdateRow" >
             <Columns>
                    <asp:TemplateField>
                         <ItemTemplate>
                             <asp:LinkButton ID="lbEdit" CommandArgument='<%# Eval("UserId") %>' runat="server" CommandName="EditRow" Text="Edit">
                             </asp:LinkButton>
-                            <asp:LinkButton ID="lbDelete" CommandArgument='<%# Eval("UserId") %>' runat="server" CommandName="DeleteRow" Text="Delete">
+                            <asp:LinkButton ID="lbDelete" CommandArgument='<%# Eval("UserId") %>' runat="server" CommandName="Delete" Text="Delete">
                             </asp:LinkButton>
                         </ItemTemplate>
                         <EditItemTemplate>
-                           <asp:LinkButton ID="lbUpdate" CommandArgument='<%# Eval("UserId") %>' runat="server" CommandName="UpdateRow" Text="Update">
+                           <asp:LinkButton ID="lbUpdate" CommandArgument='<%# Eval("UserId") %>' runat="server" CommandName="Update" Text="Update">
                            </asp:LinkButton>
                            <asp:LinkButton ID="lbCancel" CommandArgument='<%# Eval("UserId") %>' runat="server" CommandName="CancelUpdate" Text="Cancel">
                            </asp:LinkButton>
