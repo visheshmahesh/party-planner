@@ -14,7 +14,7 @@ body {
 #header{
   float: left;
   width: 80%;
-  height: 30vh;
+  height: 30vmin;
 	background-image: url("../assets/images/confetti2.svg"), url("../assets/images/p1.svg"), url("../assets/images/p2.svg"), url("../assets/images/p3.svg");
   background-size: auto; 220px 220px, 110px, 110px, 30px 30px;
   background-repeat: no-repeat, repeat, repeat, repeat;
@@ -40,8 +40,8 @@ body {
 }
 
 #party {
-  font-size: 10vh;
-  margin: 3%;
+  font-size: 9vmin;
+  margin: 2%;
   font-family: Paralines;
   color: white;
   animation: blink 4s linear infinite;
@@ -54,13 +54,13 @@ body {
 }
 
 p {
-  font-size: 3vh;
+  font-size: 3vmin;
   font-family: Reef;
 }
 
 #hint {
   text-align: right;
-  padding-right: 1vh;
+  padding-right: 1vmin;
   color: #2980b9;
 }
 
@@ -71,7 +71,7 @@ p {
 }
 
 #text {
-  padding-top: 5vh;
+  padding-top: 4vmin;
   text-align: center;
   color: #7f8c8d;
 }
@@ -79,27 +79,76 @@ p {
 /* FOOTER STUFF */
 
 #footer {
-  height: 15vh;
+  height: 25vh;
   width: 100%;
   clear: both;
   background-color: #34495e;
   bottom: 0;
+  position: relative;
+}
+
+#footertext {
+  float:left;
+  height: 100%;
+  width: 50%;
 }
 
 #partyfooter {
-  font-size: 4vh;
+  font-size: 5vmin;
   font-family: Paralines;
   color: white;
   float: left;
   margin: 0;
 }
+
 #footerinfo {
-  font-size: 2.2vh;
+  font-size: 2.2vmin;
   font-family: sans-serif;
   color: white;
-  padding-top: 12vh;
   float: left;
-  margin: 0;
+  margin: 20vmin 0 0 10vmin;
+  position: absolute;
+}
+
+#footerlinks {
+  float:left;
+  height: 100%;
+  position: absolute;
+  margin-left: 50%;
+  width: 20%;
+}
+
+#footeradmin {
+  font-size: 2.2vmin;
+  font-family: sans-serif;
+  color: white;
+  bottom: 2vmin;
+  position: absolute;
+}
+
+#footerimglink {
+  height: 7vmin;
+  width: 7vmin;
+  float:left;
+  padding: 8vmin 1vmin 0 3vmin;
+}
+
+#SI {
+  height: 10vmin;
+  width: 10vmin;
+  float:right;
+  padding-top: 2vmin;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* RESPONSIVE CODING */
+
+@media screen and (max-width: 1200px) {
+
 }
 
 /* LOGIN AND SIGNUP PAGE STUFF */
@@ -119,10 +168,10 @@ p {
 
 #intro {
   text-align: center;
-  font-size: 5vh;
+  font-size: 4vmin;
   margin: 0 auto;
   background-color: #34495e;
-  padding: 3vh;
+  padding: 3vmin;
   color: #fff;
 }
 
@@ -130,9 +179,9 @@ p {
   background-color: #fff;
   border: 1px solid #95a5a6;
   border-radius: 8px;
-  margin: 5vh auto;
+  margin: 5vmin auto;
   width: 70%;
-  padding: 0 0 5vh 0;
+  padding: 0 0 5vmin 0;
   box-shadow: 0 0 10px #95a5a6;
 }
 
@@ -140,12 +189,12 @@ input[type=email], input[type=password], input[type=text], input[type=date] {
     display: block;
     box-sizing: border-box;
     width: 80%;
-    padding: 2vh 1vh 2vh 4vh;
-    margin: 3vh auto;
+    padding: 2vmin 1vmin 2vmin 4vmin;
+    margin: 3vmin auto;
     border: 1px solid #95a5a6;
     outline: none;
     border-radius: 4px;
-    font-size: 2vh;
+    font-size: 2vmin;
 }
 
 input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, input[type=date]:focus {
@@ -157,12 +206,12 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 
 input[type=submit] {
   display: block;
-  margin: 1vh auto;
-  padding: 2vh;
+  margin: 1vmin auto;
+  padding: 2vmin;
   width: 80%;
   border-width: 0;
   border-radius: 4px;
-  font-size: 2.5vh;
+  font-size: 2.5vmin;
   font-weight: bold;
   background-color: #34495e;
   color: #fff;
@@ -179,30 +228,38 @@ input[type=submit]:focus {
 
 /* CREATE / UPDATE EVENT STUFF */
 
+#text2 {
+  padding-top: 2vmin;
+  text-align: center;
+  color: #7f8c8d;
+}
+
+#logout {
+  color: #2980b9;
+}
+
 #createevent {
   float: left;
   height: 100vh;
   width: 49.9%;
+  position: relative;
 }
 
 #updateevent {
   float: left;
   height: 100vh;
   width: 50%;
-}
-
-#text2 {
-  padding-top: 2vh;
-  text-align: center;
-  color: #7f8c8d;
+  position: relative;
 }
 
 #addimg {
-  margin: 0 2vw;
+  margin: 0 5vmin;
   box-shadow: 0 0 2px #000;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.05);
-  margin-top: 5vh;
+  margin-top: 5%;
+  height: 90%;
+  width: 90%;
 }
 
 #addimg:hover {
@@ -211,18 +268,28 @@ input[type=submit]:focus {
   transition: 0.5s;
 }
 
-#hovertext2 {
-  font-size: 6vh;
+#hovertext1 {
+  font-size: 6vmin;
   font-family: Reef;
   text-align: center;
   position: absolute;
-  margin: 30vh 12vw;
+  top: 38vh;
+  right: 33%;
+  background-color: white;
+  opacity: 0.5;
+  border: 2px solid #000;
+  border-radius: 10px;
 }
 
-#hovertext1 {
-  font-size: 6vh;
+#hovertext2 {
+  font-size: 6vmin;
   font-family: Reef;
   text-align: center;
   position: absolute;
-  margin: 30vh 15vw;
+  top: 38vh;
+  right: 25%;
+  background-color: white;
+  opacity: 0.5;
+  border: 2px solid #000;
+  border-radius: 10px;
 }
