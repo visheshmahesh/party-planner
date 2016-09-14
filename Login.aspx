@@ -15,10 +15,12 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ControlToValidate="tbxEnterEmail" ErrorMessage="Incorrect Email" ForeColor="Red"></asp:RequiredFieldValidator>
         </p>
         <p>
-            <asp:Label ID="lblEnterPassword" runat="server" Text="Enter Password" ></asp:Label>
-            <asp:TextBox ID="tbxEnterPassword" runat="server" type="password"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidatorPassword" runat="server" ControlToValidate="tbxEnterEmail" ErrorMessage="Incorrect Password" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:Label ID="lblEnterpassword" runat="server" Text="Enter password" ></asp:Label>
+            <asp:TextBox ID="tbxEnterpassword" runat="server" type="password"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorpassword" runat="server" ControlToValidate="tbxEnterEmail" ErrorMessage="Incorrect password" ForeColor="Red"></asp:RequiredFieldValidator>
+
         </p>
+     
         <p>
             <asp:Button ID="btnLogin" runat="server" text="LOGIN" OnClick="btnLogin_Click" />
         </p>
@@ -28,7 +30,7 @@
         function resetForm()
         {
             document.getElementById("tbxEnterEmail").value = "";
-            document.getElementById("tbxEnterPassword").value = "";
+            document.getElementById("tbxEnterpassword").value = "";
         }
      </script>
            

@@ -42,6 +42,14 @@
                 <asp:TextBox ID="tbxDOB" type="date" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorDOB" runat="server" controltovalidate="tbxDOB" ErrorMessage="Date of birth is required" ForeColor="red"></asp:RequiredFieldValidator>
         </p>
+            <p>
+           <asp:Label ID="lblLoginAs" runat="server" Text="Register As" ></asp:Label>
+            <asp:DropDownList ID="ddlLoginAs" runat="server">
+                <asp:ListItem Selected="True" Value="2">User</asp:ListItem>
+             
+            </asp:DropDownList>
+             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlLoginAs" ErrorMessage="field required" ForeColor="Red"></asp:RequiredFieldValidator>
+        </p>
      
         <p>
                 <asp:Button ID="btnNext" runat="server" Text="signup" OnClick="btnNext_Click" />        

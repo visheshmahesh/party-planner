@@ -56,24 +56,25 @@ public partial class gridView : System.Web.UI.Page
     protected void GridViewData_UpdateRow(Object sender,GridViewUpdateEventArgs e)
     {
         GridViewRow row = (GridViewRow)GridViewData.Rows[e.RowIndex];
-        Label UserId = (Label)row.FindControl("UserId");
+        Label UserId = (Label)row.FindControl("lblUserId");
         TextBox tbxName = (TextBox)row.FindControl("tbxName");
         TextBox tbxEmail = (TextBox)row.FindControl("tbxEmail");
-        TextBox tbxPassword = (TextBox)row.FindControl("tbxPassword");
+        TextBox tbxpassword = (TextBox)row.FindControl("tbxpassword");
         TextBox tbxContactNo = (TextBox)row.FindControl("tbxContactNo");
         TextBox tbxDOB = (TextBox)row.FindControl("tbxDOB");
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
-        string updateFields = "update USERS set Name=@name, Email=@email, Password=@password, ContactNo=@contactNo, DOB=@dob where UserId=@userId";
+        string updateFields = "update USERS set Name=@name, Email=@email, password=@password, ContactNo=@contactNo, DOB=@dob where UserId=@userId";
         try
         {
             SqlCommand cmd = new SqlCommand(updateFields, conn);
+            conn.Open();
             cmd.Parameters.AddWithValue("@userId", UserId.Text);
             cmd.Parameters.AddWithValue("@name", tbxName.Text);
             cmd.Parameters.AddWithValue("@email", tbxEmail.Text);
-            cmd.Parameters.AddWithValue("@password", tbxPassword.Text);
+            cmd.Parameters.AddWithValue("@password", tbxpassword.Text);
             cmd.Parameters.AddWithValue("@contactNo", tbxContactNo.Text);
             cmd.Parameters.AddWithValue("@dob", tbxDOB.Text);
-            conn.Open();
+            
             cmd.ExecuteNonQuery();
             conn.Close();
 

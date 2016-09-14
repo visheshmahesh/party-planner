@@ -11,29 +11,32 @@
     <div>
      <p>
           <asp:Label ID="lblEvent" runat="server" Text="Event"></asp:Label>
-             <asp:DropDownList ID="ddlEvent" runat="server">
-                  <asp:ListItem Enabled="true" Text="Select Event" Value="-1"></asp:ListItem  >
-                  <asp:ListItem Text="Birthday" Value="1"></asp:ListItem>
-                  <asp:ListItem Text="Anniversery" Value="2"></asp:ListItem>
-             </asp:DropDownList>
-             <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvent" runat="server" controltovalidate="ddlEvent" ErrorMessage="Event Name is required" ForeColor="red"></asp:RequiredFieldValidator>
+            <asp:RadioButtonList ID="rbEvent" runat="server">
+                 <asp:ListItem Text="Birthday" Value="1" />
+                 <asp:ListItem Text="Marriage" Value="2" />
+          </asp:RadioButtonList>
+             <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvent" runat="server" controltovalidate="rbEvent" ErrorMessage="Event Name is required" ForeColor="red"></asp:RequiredFieldValidator>
         </p>
         <p>
           <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
-              <asp:DropDownList ID="ddlCity" runat="server">
-                  <asp:ListItem Enabled="true" Text="Select City" Value="-1"></asp:ListItem  >
-                  <asp:ListItem Text="Delhi" Value="1"></asp:ListItem>
-                  <asp:ListItem Text="Noida" Value="2"></asp:ListItem>
-                  <asp:ListItem Text="Ghaziabad" Value="3"></asp:ListItem>
-                  <asp:ListItem Text="Gurgaon" Value="4"></asp:ListItem>
-             </asp:DropDownList>
+            <asp:RadioButtonList ID="rbCity" runat="server">
+                 <asp:ListItem Text="Delhi" Value="1" />
+                 <asp:ListItem Text="Noida" Value="2" />
+                 <asp:ListItem Text="Ghaziabad" Value="3" />
+                 <asp:ListItem Text="Gurgaon" Value="4" />
+            </asp:RadioButtonList>
             
-             <asp:RequiredFieldValidator ID="RequiredFieldValidatorCity" runat="server" controltovalidate="ddlCity" ErrorMessage="City is required" ForeColor="red"></asp:RequiredFieldValidator>
+             <asp:RequiredFieldValidator ID="RequiredFieldValidatorCity" runat="server" controltovalidate="rbCity" ErrorMessage="City is required" ForeColor="red"></asp:RequiredFieldValidator>
          </p>
          <p>
-                <asp:Label ID="lblVenue" runat="server" Text="Venue"></asp:Label>
-                <asp:TextBox ID="tbxVenue" type="text" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorVenue" runat="server" controltovalidate="tbxVenue" ErrorMessage="Contact is required" ForeColor="red"></asp:RequiredFieldValidator>
+            <asp:Label ID="lblVenue" runat="server" Text="Venue"></asp:Label>
+                <asp:RadioButtonList ID="rbVenue" runat="server">
+                 <asp:ListItem Text="Delhi" Value="1" />
+                 <asp:ListItem Text="Noida" Value="2" />
+                 <asp:ListItem Text="Ghaziabad" Value="3" />
+                 <asp:ListItem Text="Gurgaon" Value="4" />
+            </asp:RadioButtonList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorVenue" runat="server" controltovalidate="rbVenue" ErrorMessage="Venue is required" ForeColor="red"></asp:RequiredFieldValidator>
         </p>
          <p>
              <asp:Label ID="lblDate" runat="server" Text="Date"></asp:Label>
@@ -58,11 +61,12 @@
       <script>
         function resetForm()
         {
-            document.getElementById("ddlEvent").value = "";
+            document.getElementById("rbEvent").value = "";
+            document.getElementById("rbCity").value = "";
+
+            document.getElementById("rbVenue").value = "";
             document.getElementById("tbxDate").value = "";
-            document.getElementById("ddlCity").value = "";
-            
-            document.getElementById("tbxVenue").value = "";
+        
             document.getElementById("tbxGuests").value = "";
           
            

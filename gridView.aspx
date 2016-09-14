@@ -47,12 +47,12 @@
                             <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Password">
+                    <asp:TemplateField HeaderText="password">
                         <EditItemTemplate>
-                            <asp:TextBox ID="tbxPassword" runat="server" Text='<%# Eval("Password") %>'></asp:TextBox>
+                            <asp:TextBox ID="tbxpassword" runat="server" Text='<%# Eval("password") %>'></asp:TextBox>
                         </EditItemTemplate>
                          <ItemTemplate>
-                            <asp:Label ID="lblPassword" runat="server" Text='<%# Eval("Password") %>'></asp:Label>
+                            <asp:Label ID="lblpassword" runat="server" Text='<%# Eval("password") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                  <asp:TemplateField HeaderText="contactNo">
@@ -66,10 +66,10 @@
 
                     <asp:TemplateField HeaderText="Date Of Birth">
                         <EditItemTemplate>
-                            <asp:TextBox ID="tbxDOB" runat="server" Text='<%# Eval("DOB") %>'></asp:TextBox>
+                            <asp:TextBox ID="tbxDOB" type="date" runat="server" Text='<%# Eval("DOB") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="lblDOB" runat="server" Text='<%# Eval("DOB") %>'></asp:Label>
+                            <asp:Label ID="lblDOB" type="date" runat="server" Text='<%# Eval("DOB") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                    
