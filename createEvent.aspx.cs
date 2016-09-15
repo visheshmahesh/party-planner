@@ -25,12 +25,17 @@ public partial class createEvent : System.Web.UI.Page
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
                 conn.Open();
 
-                string forEventId = "select EventId from EVENT_DETAILS where UserId='" + Session["UserId"] + "' AND CityId='" + selectValue2 + "' AND Date='" + tbxDate.Text + "'";
+                    string forEventId = "select Id from EVENT_DETAILS where UserId='" + Session["UserId"] + "'";
+                //AND CityId='" + selectValue2 + "' AND Date='" + tbxDate.Text + "'";
                 SqlCommand cmdEventId = new SqlCommand(forEventId, conn);
                 EventId = Convert.ToInt32(cmdEventId.ExecuteScalar().ToString());
-                Session["EventId"] = EventId;
-               // Response.Write(Session["EventId"]);
-                Response.Redirect("addons.aspx");
+               Session["EventId"] = EventId;
+                Response.Write(Session["EventId"]);
+                //string venueId = "select Name from VENUE where City=1";
+                //SqlCommand cmdvenue = new SqlCommand(venueId, conn);
+
+                //Response.Write(venueId);
+
 
                 string getFields = "insert into EVENT_DETAILS(UserId,EventId,CityId,VenueId,Date,NoOfGuests) values(@UserId,@event,@city,@venue,@date,@noOfGuests)";
                 SqlCommand cmd = new SqlCommand(getFields, conn);
@@ -43,9 +48,9 @@ public partial class createEvent : System.Web.UI.Page
                 cmd.Parameters.AddWithValue("@noOfGuests", tbxGuests.Text);
                 cmd.ExecuteNonQuery();
                 conn.Close();
+                Response.Redirect("addons.aspx");
 
-               
-              
+
             }
         }
         catch (Exception ex)

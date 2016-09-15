@@ -40,7 +40,7 @@
                  <asp:ListItem Text="pineapple" Value="pineapple" />
                  <asp:ListItem Text="chocolate" Value="chocolate" />
                    <asp:ListItem Text="black forest" Value="black forest" />
-                <asp:ListItem Text="chocolate" Value="chocolate" />
+                
                 <asp:ListItem Text="Vanilla" Value="Vanilla" />
 
           </asp:RadioButtonList>
