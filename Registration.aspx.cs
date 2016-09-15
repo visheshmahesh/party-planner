@@ -7,7 +7,7 @@ public partial class Registration : System.Web.UI.Page
     {
     }
 
-    protected void btnNext_Click(object sender, EventArgs e)
+    protected void btnSignup_Click(object sender, EventArgs e)
     {
         try
         {

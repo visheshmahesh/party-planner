@@ -26,9 +26,9 @@ public partial class addons : System.Web.UI.Page
 
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
             conn.Open();
-            string getFields = "insert into ITEM_DETAILS(EventId,Food,Music,Decoration,Cake) values(@EventId,@Food,@Music,@Decoration,@Cake)";
+            string getFields = "insert into ITEM_DETAILS(UserId,Food,Music,Decoration,Cake) values(@UserId,@Food,@Music,@Decoration,@Cake)";
             SqlCommand cmd = new SqlCommand(getFields, conn);
-            cmd.Parameters.AddWithValue("@EventId", Convert.ToInt32(Session["EventId"]));
+            cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"]));
 
             cmd.Parameters.AddWithValue("@Food", selectValue1);
 

@@ -52,7 +52,7 @@
         </p>
      
         <p>
-                <asp:Button ID="btnNext" runat="server" Text="signup" OnClick="btnNext_Click" />        
+                <asp:Button ID="btnSignup" runat="server" Text="signup" OnClick="btnSignup_Click" />        
         </p>
     
     </div>

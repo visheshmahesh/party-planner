@@ -16,7 +16,8 @@ public partial class Login : System.Web.UI.Page
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        int temp,UserId;
+        int temp, UserId;
+        string UserName;
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
         conn.Open();
        
@@ -37,8 +38,14 @@ public partial class Login : System.Web.UI.Page
             string forUserId = "select UserId from USERS where Email='" + tbxEnterEmail.Text + "'";
             SqlCommand cmdUserId = new SqlCommand(forUserId, conn);
             UserId = Convert.ToInt32(cmdUserId.ExecuteScalar().ToString());
-
             Session["UserId"] = UserId;
+
+            string forUserName = "select Name from USERS where Email='" + tbxEnterEmail.Text + "'";
+            SqlCommand cmdUserName = new SqlCommand(forUserName, conn);
+            UserName =cmdUserName.ExecuteScalar().ToString();
+
+            Session["UserName"] = UserName;
+
 
             if (password == tbxEnterpassword.Text)
             {
@@ -53,7 +60,7 @@ public partial class Login : System.Web.UI.Page
                     {
                    
                         Response.Write("logged in as user");
-                    Response.Redirect("createEvent.aspx");
+                    Response.Redirect("update.aspx");
                     }
 
                 }
@@ -67,11 +74,9 @@ public partial class Login : System.Web.UI.Page
                 Response.Write("Incorrect password");
             }
         }
-    
-        
 
-        
-        
-    
+
+
+  
 }
     

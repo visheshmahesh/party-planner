@@ -15,7 +15,7 @@ public partial class createEvent : System.Web.UI.Page
     }
     protected void btnNext_Click(object sender, EventArgs e)
     {
-        int EventId;
+        Response.Write(Session["UserName"]);
         try
         {
             {
@@ -25,12 +25,21 @@ public partial class createEvent : System.Web.UI.Page
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
                 conn.Open();
 
-                    string forEventId = "select Id from EVENT_DETAILS where UserId='" + Session["UserId"] + "'";
+                    string forEventId = "select * from EVENT_DETAILS where UserId='" + Session["UserId"] + "'";
                 //AND CityId='" + selectValue2 + "' AND Date='" + tbxDate.Text + "'";
+
+                SqlDataReader myReader = null;
                 SqlCommand cmdEventId = new SqlCommand(forEventId, conn);
-                EventId = Convert.ToInt32(cmdEventId.ExecuteScalar().ToString());
-               Session["EventId"] = EventId;
-                Response.Write(Session["EventId"]);
+                myReader = cmdEventId.ExecuteReader();
+                
+                //EventId = Convert.ToInt32(cmdEventId.ExecuteScalar().ToString());
+                if (myReader.Read())
+                {
+                    Session["EventId"] = Convert.ToInt32(myReader[1]);
+                    //Response.Write(Session["EventId"]);
+
+                }
+                conn.Close();
                 //string venueId = "select Name from VENUE where City=1";
                 //SqlCommand cmdvenue = new SqlCommand(venueId, conn);
 
@@ -46,10 +55,11 @@ public partial class createEvent : System.Web.UI.Page
                 cmd.Parameters.AddWithValue("@venue", selectValue3);
                 cmd.Parameters.AddWithValue("@date", tbxDate.Text);
                 cmd.Parameters.AddWithValue("@noOfGuests", tbxGuests.Text);
+                conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                Response.Redirect("addons.aspx");
-
+                 Response.Redirect("addons.aspx");
+                Response.Write(Session["EventId"]);
 
             }
         }
