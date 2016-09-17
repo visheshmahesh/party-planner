@@ -39,6 +39,12 @@ body {
     src: url(../assets/fonts/Reef.otf);
 }
 
+@font-face {
+    font-family: TwCenMT-Condensed;
+    src: url(../assets/fonts/TwCen.ttf);
+}
+
+
 #party {
   font-size: 9vmin;
   margin: 2%;
@@ -226,6 +232,12 @@ input[type=submit]:focus {
   background-color: #19232d;
 }
 
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 5px;
+}
+
 /* CREATE / UPDATE EVENT STUFF */
 
 #text2 {
@@ -292,4 +304,109 @@ input[type=submit]:focus {
   opacity: 0.5;
   border: 2px solid #000;
   border-radius: 10px;
+}
+
+/* ADD NEW EVENT PAGE */
+
+#addevent {
+  width: 80%;
+  float: left;
+}
+
+#sidebar {
+  width: 20%;
+  height: 50vh;
+  background-color: green;
+  right: 0;
+  top:50vmin;
+  position: fixed;
+}
+
+fieldset {
+  border: none;
+  box-shadow: 0 0 4px #000;
+  margin-top: 2vmin;
+  border-radius: 5px;
+  position: relative;
+  padding-top: 10vmin;
+}
+
+#type {
+  display: block;
+  margin-left: 15vmin;
+  margin-right: auto;
+}
+
+.radio-hidden {
+  visibility: hidden;
+}
+
+input[type=radio] + label>img {
+  border-radius: 40px;
+  border: 1px solid black;
+}
+
+input[type=radio]:checked + label>img{
+  box-shadow: 0 0 30px #2980b9;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#eventdate {
+  width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#addlabel {
+  position: absolute;
+  top: 2%;
+  left:2%;
+  width: 96%;
+  font-family: Reef;
+  font-size: 5vmin;
+  text-align: center;
+  background-color: white;
+  opacity: 0.7;
+}
+
+#venue {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  padding: 1vmin 2vmin;
+  width: 50%;
+  font-size: 3vmin;
+}
+
+#venue:focus {
+  box-shadow: 0 0 10px #2980b9;
+}
+
+#venueinfo {
+  padding: 5vmin;
+}
+
+#venuedesc {
+  margin: 0;
+}
+
+#venuepic {
+  height: 5vmin;
+  width: 5vmin;
+  float: right;
+}
+
+button {
+  display: block;
+  padding: 1.5vmin;
+  width: 18%;
+  border-width: 0;
+  font-size: 2.2vmin;
+  font-weight: bold;
+  background-color: #34495e;
+  color: #fff;
+  float: right;
+  margin-right: 10vmin;
 }
