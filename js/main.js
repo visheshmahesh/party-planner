@@ -46,3 +46,146 @@ function Change() {
     document.getElementById("venuedesc").innerHTML = "WORKING4";
   }
 }
+
+// FUNCTION TO GENRATE INVITATION TEMPLATE WITH NAME //
+
+function getname() {
+
+  var type;
+  type = document.getElementById("invitype").selectedIndex;
+
+  var name =  document.getElementById('inputname').value;
+  var date =  document.getElementById('inputdate').value;
+
+  document.getElementById('invibtn2').disabled = false;
+  document.getElementById('invibtn2').style.transition="1s";
+
+  if (type==0) {
+
+      document.getElementById('Layer_1').style.opacity="1";
+      document.getElementById('Layer_1').style.transition="1s";
+      document.getElementById('Layer_2').style.opacity="0";
+      var x =  document.getElementById('name1');
+      x.textContent = name;
+      var w =  document.getElementById('date1');
+      w.textContent = date;
+}
+
+  else if (type==1) {
+
+    document.getElementById('Layer_2').style.opacity="1";
+    document.getElementById('Layer_2').style.transition="1s";
+    document.getElementById('Layer_1').style.opacity="0";
+    var y =  document.getElementById('name2');
+    y.textContent = name;
+    var z =  document.getElementById('date2');
+    z.textContent = date;
+  }
+}
+
+
+// SVG TO PNG CONVERTER
+
+function SVGPNG() {
+
+    var type;
+    type = document.getElementById("invitype").selectedIndex;
+
+    var btn = document.querySelector('button');
+    var canvas = document.querySelector('canvas');
+
+    if (type==0) {
+
+  var svg = document.getElementById('Layer_1');
+
+  function triggerDownload(imgURI) {
+    var evt = new MouseEvent('click', {
+      view: window,
+      bubbles: false,
+      cancelable: true
+    });
+
+    var a = document.createElement('a');
+    a.setAttribute('download', 'invitation.png');
+    a.setAttribute('href', imgURI);
+    a.setAttribute('target', '_blank');
+
+    a.dispatchEvent(evt);
+  }
+
+  btn.addEventListener('click', function(imgURI) {
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    var data = (new XMLSerializer()).serializeToString(svg);
+    var DOMURL = window.URL || window.webkitURL || window;
+
+    var img = new Image();
+    var svgBlob = new Blob([data], {
+      type: 'image/svg+xml;charset=utf-8'
+    });
+    var url = DOMURL.createObjectURL(svgBlob);
+
+    img.onload = function() {
+      ctx.drawImage(img, 0, 0);
+      DOMURL.revokeObjectURL(url);
+
+      var imgURI = canvas
+        .toDataURL('image/png')
+        .replace('image/png', 'image/octet-stream');
+
+      triggerDownload(imgURI);
+    };
+
+    img.src = url;
+  });
+}
+
+else if (type==1) {
+
+    var svg = document.getElementById('Layer_2');
+
+    function triggerDownload(imgURI) {
+      var evt = new MouseEvent('click', {
+        view: window,
+        bubbles: false,
+        cancelable: true
+      });
+
+      var a = document.createElement('a');
+      a.setAttribute('download', 'invitation.png');
+      a.setAttribute('href', imgURI);
+      a.setAttribute('target', '_blank');
+
+      a.dispatchEvent(evt);
+    }
+
+    btn.addEventListener('click', function(imgURI) {
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
+
+      var data = (new XMLSerializer()).serializeToString(svg);
+      var DOMURL = window.URL || window.webkitURL || window;
+
+      var img = new Image();
+      var svgBlob = new Blob([data], {
+        type: 'image/svg+xml;charset=utf-8'
+      });
+      var url = DOMURL.createObjectURL(svgBlob);
+
+      img.onload = function() {
+        ctx.drawImage(img, 0, 0);
+        DOMURL.revokeObjectURL(url);
+
+        var imgURI = canvas
+          .toDataURL('image/png')
+          .replace('image/png', 'image/octet-stream');
+
+        triggerDownload(imgURI);
+      };
+
+      img.src = url;
+    });
+}
+
+}

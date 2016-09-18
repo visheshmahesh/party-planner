@@ -14,8 +14,8 @@
 	.st8{fill:#3C3B3D;}
 	.st9{fill:#2C2A2D;}
 	.st10{opacity:0.54;fill:#B2B2B2;enable-background:new    ;}
-	.st11{font-family:'MyriadPro-Regular';}
-	.st12{font-size:72px;}
+	.st11{font-family:'Tw Cen MT Condensed';}
+	.st12{font-size:100px;}
 </style>
 <g class="st0">
 	<rect y="1.1" class="st1" width="71" height="30.1"/>
@@ -103,6 +103,6 @@
 	<path class="st9" d="M250,170.1c-23.1,0-42-19.5-42-43.6c0-24,18.8-43.6,42-43.6s42,19.5,42,43.6S273.1,170.1,250,170.1z"/>
 	<path class="st8" d="M250,148.6c-11.7,0-21.2-9.9-21.2-22s9.5-22,21.2-22c11.7,0,21.2,9.9,21.2,22S261.7,148.6,250,148.6z"/>
 </g>
-<rect x="-11" y="217" class="st10" width="552" height="88"/>
+<rect x="-5" y="217" class="st10" width="505" height="88"/>
 <text transform="matrix(1 0 0 1 208.0473 285)" class="st11 st12">DJ</text>
 </svg>
