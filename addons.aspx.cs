@@ -38,7 +38,8 @@ public partial class addons : System.Web.UI.Page
 
 
             cmd.ExecuteNonQuery();
-            Response.Redirect("Login.aspx");
+            Response.Write("Congratulations , you have successfully booked your event");
+            //Response.Redirect(".aspx");
             conn.Close();
 
         }

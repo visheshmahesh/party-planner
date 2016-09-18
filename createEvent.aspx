@@ -5,70 +5,151 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    		<link rel="stylesheet" href="../css/content.css">
+
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-     <p>
-          <asp:Label ID="lblEvent" runat="server" Text="Event"></asp:Label>
-            <asp:RadioButtonList ID="rbEvent" runat="server">
-                 <asp:ListItem Text="Birthday" Value="1" />
-                 <asp:ListItem Text="Marriage" Value="2" />
+    	<script src="./js/main.js"></script>
+    
+<div class="container">
+
+<div id="header">
+			<p id="party">Party Planner</p>
+			<p id="hint">ALL YOUR PARTY PLANNING NEEDS IN ONE PLACE</p>
+</div>
+
+<div id="logstatus">
+			<p id="text2">
+
+				<img src="../assets/images/userdp.svg" height="30%" width="30%" alt="userdp"><br/>
+
+
+                      <form id="form1" runat="server">
+
+                 <asp:Button ID="btnlogout" runat="server" Text="LOG OUT" OnClick="btnlogout_Click" />      
+			</p>
+</div>
+
+        <div id="addevent">
+
+		<fieldset id="eventtype">
+			<label id="addlabel">SELECT EVENT TYPE</label>
+            <div id="type">
+          <asp:RadioButtonList ID="rbEvent" runat="server" RepeatDirection="Horizontal">
+              <asp:ListItem Text='<img src="../assets/images/bday.svg" ID="radioimage" alt="Birthday" />' Value="1" />
+               <asp:ListItem Text='<img src="../assets/images/wedding.svg" ID="radioimage" alt="Wedding" />' Value="2" />
+
+               </asp:RadioButtonList>
+        <!--  <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvent" runat="server" controltovalidate="rbEvent" ErrorMessage="Event Name is required" ForeColor="red"></asp:RequiredFieldValidator>-->
+            </div>
+            </fieldset>
+
+           	<fieldset>
+        <label id="addlabel">SELECT CITY</label>
+
+          <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="true">
+          </asp:DropDownList>
+       <!--    <asp:RequiredFieldValidator ID="RequiredFieldValidatorCity" runat="server" controltovalidate="ddlCity" ErrorMessage="City is required" ForeColor="red"></asp:RequiredFieldValidator>-->
+		    </fieldset>
+           	<fieldset>
+                    <label id="addlabel">SELECT VENUE</label>
+              		<button type="button" id="change"onclick="Change()">VIEW VENUE</button>
+
+           <asp:DropDownList ID="ddlVenue" runat="server" AutoPostBack="true">
+           </asp:DropDownList>
+         <!--   <asp:RequiredFieldValidator ID="RequiredFieldValidatorVenue" runat="server" controltovalidate="ddlVenue" ErrorMessage="Venue is required" ForeColor="red"></asp:RequiredFieldValidator>-->
+			<div id="venueinfo">
+				<img src="../assets/images/placeholder.png" id="venuepic"><p id="venuedesc">  </p>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<label id="addlabel">EVENT DATE</label>
+           <asp:TextBox ID="tbxDate" type="date" runat="server"></asp:TextBox>
+         <!--   <asp:RequiredFieldValidator ID="RequiredFieldValidatorDate" runat="server" controltovalidate="tbxDate" ErrorMessage="Date is required" ForeColor="red"></asp:RequiredFieldValidator>-->
+          </fieldset>
+
+    		<fieldset>
+			<label id="addlabel">Addons</label>
+
+			<fieldset>
+				<label id="addlabel">Food</label>
+             <asp:RadioButtonList ID="rbFood" runat="server" Height="59px" RepeatDirection="Horizontal">
+               <asp:ListItem Text='<img src="../assets/images/none.svg" alt="None" ID="radioimage" />' Selected="true" Value="none" />
+               <asp:ListItem Text='<img src="../assets/images/veg.svg" alt="Veg" ID="radioimage" />' Value="veg" />
+               <asp:ListItem Text='<img src="../assets/images/nonveg.svg" alt="Non Veg" ID="radioimage" />' Value="non veg" />
+               <asp:ListItem Text='<img src="../assets/images/omni.svg" alt="Omni" ID="radioimage" />' Value="veg+non veg" />
+           </asp:RadioButtonList>
+			</fieldset>
+
+       	<fieldset>
+				<label id="addlabel">Music</label>
+           <asp:RadioButtonList ID="rbMusic" runat="server" Height="50px" RepeatDirection="Horizontal">
+               <asp:ListItem Text='<img src="../assets/images/none.svg" alt="None" ID="radioimage" />' Selected="true" Value="none" />
+               <asp:ListItem Text='<img src="../assets/images/DJ.svg" alt="DJ" ID="radioimage" />' Value="dj" />
+               <asp:ListItem Text='<img src="../assets/images/lightmusic.svg" alt="Light Music" ID="radioimage" />' Value="light music" />
+   
           </asp:RadioButtonList>
-             <asp:RequiredFieldValidator ID="RequiredFieldValidatorEvent" runat="server" controltovalidate="rbEvent" ErrorMessage="Event Name is required" ForeColor="red"></asp:RequiredFieldValidator>
-        </p>
-        <p>
-          <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
-            <asp:RadioButtonList ID="rbCity" runat="server">
-                 <asp:ListItem Text="Delhi" Value="1" />
-                 <asp:ListItem Text="Noida" Value="2" />
-                 <asp:ListItem Text="Ghaziabad" Value="3" />
-                 <asp:ListItem Text="Gurgaon" Value="4" />
-            </asp:RadioButtonList>
-            
-             <asp:RequiredFieldValidator ID="RequiredFieldValidatorCity" runat="server" controltovalidate="rbCity" ErrorMessage="City is required" ForeColor="red"></asp:RequiredFieldValidator>
-         </p>
-         <p>
-            <asp:Label ID="lblVenue" runat="server" Text="Venue"></asp:Label>
-                <asp:RadioButtonList ID="rbVenue" runat="server">
-                 <asp:ListItem Text="Delhi" Value="1" />
-                 <asp:ListItem Text="Noida" Value="2" />
-                 <asp:ListItem Text="Ghaziabad" Value="3" />
-                 <asp:ListItem Text="Gurgaon" Value="4" />
-            </asp:RadioButtonList>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorVenue" runat="server" controltovalidate="rbVenue" ErrorMessage="Venue is required" ForeColor="red"></asp:RequiredFieldValidator>
-        </p>
-         <p>
-             <asp:Label ID="lblDate" runat="server" Text="Date"></asp:Label>
-                <asp:TextBox ID="tbxDate" type="date" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorDate" runat="server" controltovalidate="tbxDate" ErrorMessage="Date is required" ForeColor="red"></asp:RequiredFieldValidator>
-           
-       </p>
-     
-       
-       
-        <p>
-                <asp:Label ID="lblGuests" runat="server" Text="No Of Guests"></asp:Label>
-                <asp:TextBox ID="tbxGuests" type="text" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorGuests" runat="server" controltovalidate="tbxGuests" ErrorMessage="no of guests is required" ForeColor="red"></asp:RequiredFieldValidator>
-        </p>
-     
-     <p>
-                <asp:Button ID="btnNext" runat="server" Text="submit" OnClick="btnNext_Click" />       
-        </p>
-    </div>
+   		</fieldset>
+
+			<fieldset>
+				<label id="addlabel">Decoration</label>
+          <asp:RadioButtonList ID="rbDecoration" runat="server" Height="50px" RepeatDirection="Horizontal">
+              <asp:ListItem Text='<img src="../assets/images/none.svg" alt="None" ID="radioimage" />' Selected="true" Value="none" />
+              <asp:ListItem Text='<img src="../assets/images/standarddec.svg" alt="Standard" ID="radioimage" />' Value="standard" />
+              <asp:ListItem Text='<img src="../assets/images/deluxedec.svg" alt="Deluxe" ID="radioimage" />' Value="deluxue" />
+          </asp:RadioButtonList>
+   			</fieldset>
+
+
+			<fieldset>
+				<label id="addlabel">Cake</label>
+          <asp:RadioButtonList ID="rbCake" runat="server" Height="50px" RepeatDirection="Horizontal">
+              <asp:ListItem Text='<img src="../assets/images/none.svg" alt="None" ID="radioimage" />' Selected="true" Value="none" />
+              <asp:ListItem Text='<img src="../assets/images/pineapple.svg" alt="Pineapple" ID="radioimage" />' Value="pineapple" />
+              <asp:ListItem Text='<img src="../assets/images/truffle.svg" alt="Truffle" ID="radioimage" />' Value="chocolate" />
+              <asp:ListItem Text='<img src="../assets/images/strawberry.svg" alt="Strawberry" ID="radioimage" />' Value="Strawberry" />
+          </asp:RadioButtonList>
+                   			</fieldset>
+               <asp:Button ID="btnBookNow" runat="server" Text="BOOK NOW" OnClick="btnNext_Click" />    
+                
+
+        </div>
     </form>
+ 
+    
+<aside id="sidebar">
+
+</aside>
+
+<div id="footer">
+	<div id="footertext">
+	<p id="partyfooter">Party Planner</p>
+	<p id="footerinfo">-A Project By Ayush Singh and Vishesh Maheshwari</p>
+</div>
+<div id="footerlinks">
+	<a href="https://www.facebook.com/ayush013"><img src="../assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"></a>
+	<a href="https://www.instagram.com/alphaayush"><img src="../assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"></a>
+	<p id="footeradmin"><a href="#">Contact Us</a></p>
+</div>
+<img src="../assets/images/SILogo.svg" alt="SILogo" id="SI"/>
+</div>
+
+        </div>
       <script>
         function resetForm()
         {
             document.getElementById("rbEvent").value = "";
-            document.getElementById("rbCity").value = "";
+            document.getElementById("ddlCity").value = "";
 
-            document.getElementById("rbVenue").value = "";
+            document.getElementById("ddlVenue").value = "";
             document.getElementById("tbxDate").value = "";
         
-            document.getElementById("tbxGuests").value = "";
           
+            document.getElementById("rbFood").value = "";
+            document.getElementById("rbMusic").value = "";
+            document.getElementById("rbDecoration").value = "";
+            document.getElementById("rbCake").value = "";
            
         }
     </script>

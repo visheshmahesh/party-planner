@@ -142,7 +142,7 @@ p {
 
 a {
   text-decoration: none;
-  color: white;
+  color: grey;
 }
 
 /* RESPONSIVE CODING */
@@ -156,13 +156,13 @@ a {
 
 #login {
   float: left;
-  height: 100vh;
+  height: 140vh;
   width: 49.9%;
 }
 
 #signup {
   float: left;
-  height: 100vh;
+  height: 140vh;
   width: 50%;
 }
 
@@ -175,36 +175,45 @@ a {
   color: #fff;
 }
 
+#intro1 {
+  text-align: center;
+  font-size: 4vmin;
+  margin: 0 auto;
+  background-color: #34495e;
+  padding: 3vmin;
+  color: #fff;
+}
+
 #logform, #signform {
   background-color: #fff;
   border: 1px solid #95a5a6;
   border-radius: 8px;
-  margin: 5vmin auto;
+  margin: 2vmin auto;
   width: 70%;
-  padding: 0 0 5vmin 0;
+  padding: 0 0 2vmin 0;
   box-shadow: 0 0 10px #95a5a6;
 }
 
-input[type=email], input[type=password], input[type=text], input[type=date] {
+#tbxEnterEmail, #tbxEnterpassword, #tbxName, #tbxEmail, #tbxPassword, #tbxConfirmPassword, #tbxContactNo, #tbxDOB, #tbxDate {
     display: block;
     box-sizing: border-box;
     width: 80%;
     padding: 2vmin 1vmin 2vmin 4vmin;
-    margin: 3vmin auto;
+    margin: 0 auto;
     border: 1px solid #95a5a6;
     outline: none;
     border-radius: 4px;
     font-size: 2vmin;
 }
 
-input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, input[type=date]:focus {
+#tbxEnterEmail:focus, #tbxEnterpassword:focus, #tbxName:focus, #tbxEmail:focus, #tbxPassword:focus, #tbxConfirmPassword:focus, #tbxContactNo:focus, #tbxDOB:focus, #tbxDate:focus {
     border: 1px solid #34495e;
     box-shadow: 0 0 10px #34495e, 0 0 10px #34495e;
     transition: 0.5s;
 }
 
 
-input[type=submit] {
+#btnLogin, #btnSignup, #btnSend, #btnNext {
   display: block;
   margin: 1vmin auto;
   padding: 2vmin;
@@ -217,13 +226,40 @@ input[type=submit] {
   color: #fff;
 }
 
-input[type=submit]:hover {
+#HyperLink1 {
+  color: #2980b9;
+  font-family: sans-serif;
+  margin-left: 6vmin;
+  margin-top: 4vmin;
+  font-size: 2vmin;
+}
+
+#labeldropdown {
+  margin: 2vmin 6vmin;
+}
+#btnLogin:hover, #btnSignup:hover {
   background-color: #4f6f8f;
   transition: 0.5s;
 }
 
-input[type=submit]:focus {
+#btnLogin:focus, #btnSignup:focus {
   background-color: #19232d;
+}
+
+#tbxDate:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 5px;
+}
+
+/* FORGOT PASSWORD */
+
+#forgotpwd {
+  height: 80vh;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 /* CREATE / UPDATE EVENT STUFF */
@@ -234,9 +270,19 @@ input[type=submit]:focus {
   color: #7f8c8d;
 }
 
-#logout {
-  color: #2980b9;
+#btnlogout {
+  display: block;
+  padding: 1.5vmin;
+  width: 50%;
+  border-width: 0;
+  font-size: 2.2vmin;
+  font-weight: bold;
+  background-color: #34495e;
+  color: #fff;
+  float: right;
+  margin-right: 10vmin;
 }
+
 
 #createevent {
   float: left;
@@ -292,4 +338,145 @@ input[type=submit]:focus {
   opacity: 0.5;
   border: 2px solid #000;
   border-radius: 10px;
+}
+
+/* ADD NEW EVENT PAGE */
+
+#addevent {
+  width: 80%;
+  float: left;
+}
+
+#sidebar {
+  width: 20%;
+  height: 50vh;
+  right: 0;
+  top:50vmin;
+  position: fixed;
+}
+
+fieldset {
+  border: none;
+  box-shadow: 0 0 4px #000;
+  margin-top: 2vmin;
+  border-radius: 5px;
+  position: relative;
+  padding-top: 10vmin;
+}
+
+#type {
+  display: block;
+  margin-left: 15vmin;
+  margin-right: auto;
+}
+
+#rbEvent, #rbMusic, #rbFood, #rbDecoration, #rbCake {
+  height: 80%;
+  width: 80%;
+  }
+
+
+#radioimage {
+    border-radius: 40px;
+   border: 1px solid black;
+}
+
+
+#radioimage:active {
+  box-shadow: 0 0 20px #2980b9;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#eventdate {
+  width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#addlabel {
+  position: absolute;
+  top: 2%;
+  left:2%;
+  width: 96%;
+  font-family: Reef;
+  font-size: 5vmin;
+  text-align: center;
+  background-color: white;
+  opacity: 0.7;
+}
+
+#ddlCity, #ddlVenue {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  padding: 1vmin 2vmin;
+  width: 50%;
+  font-size: 3vmin;
+}
+
+#ddlCity:focus, #ddlVenue:focus {
+  box-shadow: 0 0 10px #2980b9;
+}
+
+#venueinfo {
+  padding: 5vmin;
+}
+
+#venuedesc {
+  margin: 0;
+}
+
+#venuepic {
+  height: 1vmin;
+  width: 1vmin;
+  float: right;
+}
+
+#btnBookNow  {
+  display: block;
+  padding: 1.5vmin;
+  width: 70%;
+  border-width: 0;
+  font-size: 2.2vmin;
+  font-weight: bold;
+  background-color: #34495e;
+  color: #fff;
+  margin: 5vh auto;
+}
+
+#change  {
+  display: block;
+  padding: 1.5vmin;
+  width: 18%;
+  border-width: 0;
+  font-size: 2.2vmin;
+  font-weight: bold;
+  background-color: #34495e;
+  color: #fff;
+  float: right;
+  margin-right: 10vmin;
+}
+
+/* ADMIN TABLE AND REGISTRATION*/
+
+#admintable {
+  margin-left: 40vh;
+}
+
+#signup2 {
+  float: left;
+  width: 50%;
+}
+
+
+#signform2 {
+  background-color: #fff;
+  border: 1px solid #95a5a6;
+  border-radius: 8px;
+  margin: 10vmin 30vw;
+  width: 70%;
+  padding: 0 0 2vmin 0;
+  box-shadow: 0 0 10px #95a5a6;
 }

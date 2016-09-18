@@ -60,10 +60,9 @@ public partial class gridView : System.Web.UI.Page
         TextBox tbxName = (TextBox)row.FindControl("tbxName");
         TextBox tbxEmail = (TextBox)row.FindControl("tbxEmail");
         TextBox tbxpassword = (TextBox)row.FindControl("tbxpassword");
-        TextBox tbxContactNo = (TextBox)row.FindControl("tbxContactNo");
         TextBox tbxDOB = (TextBox)row.FindControl("tbxDOB");
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
-        string updateFields = "update USERS set Name=@name, Email=@email, password=@password, ContactNo=@contactNo, DOB=@dob where UserId=@userId";
+        string updateFields = "update USERS set Name=@name, Email=@email, password=@password, DOB=@dob where UserId=@userId";
         try
         {
             SqlCommand cmd = new SqlCommand(updateFields, conn);
@@ -72,7 +71,6 @@ public partial class gridView : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@name", tbxName.Text);
             cmd.Parameters.AddWithValue("@email", tbxEmail.Text);
             cmd.Parameters.AddWithValue("@password", tbxpassword.Text);
-            cmd.Parameters.AddWithValue("@contactNo", tbxContactNo.Text);
             cmd.Parameters.AddWithValue("@dob", tbxDOB.Text);
             
             cmd.ExecuteNonQuery();
@@ -87,6 +85,12 @@ public partial class gridView : System.Web.UI.Page
 
 
 
+
+    }
+    protected void btnlogout_Click(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Response.Redirect("Login.aspx");
 
     }
     protected void GridViewData_DeleteRow(Object sender, GridViewDeleteEventArgs e)
@@ -104,5 +108,6 @@ public partial class gridView : System.Web.UI.Page
 
     }
 
+  
 
 }

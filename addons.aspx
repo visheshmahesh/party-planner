@@ -47,7 +47,7 @@
 
 
      <p>
-                <asp:Button ID="btnNext" runat="server" Text="submit" OnClick="btnNext_Click" />       
+                <asp:Button ID="btnNext" runat="server" Text="BOOK NOW" OnClick="btnNext_Click" />       
         </p>
 
            

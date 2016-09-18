@@ -15,7 +15,7 @@
                </p>
          <p>
                
-                <asp:TextBox ID="tbxYourPass" type="text" runat="server" placeholder="your password"></asp:TextBox>
+                <asp:TextBox ID="tbxYourPass" type="password" runat="server" placeholder="your password"></asp:TextBox>
                </p>
          <p>
                
@@ -27,8 +27,9 @@
                </p>
          <p>
                
-                <asp:TextBox ID="tbxMessage" type="text" runat="server" placeholder="message"></asp:TextBox>
+                <asp:TextBox ID="tbxMessage" TextMode="MultiLine" runat="server" placeholder="message"></asp:TextBox>
                </p>
+               <asp:FileUpload ID="FileUpload" runat="server" />
         
        
           <asp:Button ID="Button1" runat="server" Text="send mail" OnClick="Button1_Click" />

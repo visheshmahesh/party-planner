@@ -26,7 +26,7 @@ public partial class update : System.Web.UI.Page
         while (myReader.Read())
         {
             tbxDate.Text = (myReader["DATE"].ToString());
-            tbxGuests.Text = (myReader["NoOfGuests"].ToString());
+          //  tbxGuests.Text = (myReader["NoOfGuests"].ToString());
             this.rbEvent.SelectedValue = (myReader["EventId"].ToString());
             this.rbCity.SelectedValue = (myReader["CityId"].ToString());
             this.rbVenue.SelectedValue = (myReader["VenueId"].ToString());
@@ -50,11 +50,11 @@ public partial class update : System.Web.UI.Page
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
       
-        SqlCommand cmd = new SqlCommand("UPDATE EVENT_DETAILS SET DATE = @date, NoOfGuests = @guests, EventId = @event, CityId = @city, VenueId= @venue where Id='" + Session["EventId"] + "'", conn);
+        SqlCommand cmd = new SqlCommand("UPDATE EVENT_DETAILS SET DATE = @date, EventId = @event, CityId = @city, VenueId= @venue where Id='" + Session["EventId"] + "'", conn);
         conn.Open();
 
         cmd.Parameters.AddWithValue("@date", tbxDate.Text);
-        cmd.Parameters.AddWithValue("@guests", tbxGuests.Text);
+     //   cmd.Parameters.AddWithValue("@guests", tbxGuests.Text);
         cmd.Parameters.AddWithValue("@event", this.rbEvent.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@city", this.rbCity.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@venue", this.rbVenue.SelectedValue.ToString());
