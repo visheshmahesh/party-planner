@@ -5,84 +5,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    		<link rel="stylesheet" href="../css/content.css">
+
 </head>
 <body>
+    	<script src="../js/main.js"></script>
+<div class="container">
+
+<div id="header">
+			<p id="party">Party Planner</p>
+			<p id="hint">ALL YOUR PARTY PLANNING NEEDS IN ONE PLACE</p>
+</div>
+
+<div id="logstatus">
+			<p id="text2">
+				<img src="../assets/images/userdp.svg" height="30%" width="30%" alt="userdp"><br/>
     <form id="form1" runat="server">
-    <div>
-         <p>
-          <asp:Label ID="lblEvent" runat="server" Text="Event"></asp:Label>
-            <asp:RadioButtonList ID="rbEvent" runat="server">
-                 <asp:ListItem Text="Birthday" Value="1" />
-                 <asp:ListItem Text="Marriage" Value="2" />
-          </asp:RadioButtonList>
-        </p>
-        <p>
-          <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
-            <asp:RadioButtonList ID="rbCity" runat="server">
-                 <asp:ListItem Text="Delhi" Value="1" />
-                 <asp:ListItem Text="Noida" Value="2" />
-                 <asp:ListItem Text="Ghaziabad" Value="3" />
-                 <asp:ListItem Text="Gurgaon" Value="4" />
-            </asp:RadioButtonList>
-            
-         </p>
-         <p>
-            <asp:Label ID="lblVenue" runat="server" Text="Venue"></asp:Label>
-                <asp:RadioButtonList ID="rbVenue" runat="server">
-                 <asp:ListItem Text="Delhi" Value="1" />
-                 <asp:ListItem Text="Noida" Value="2" />
-                 <asp:ListItem Text="Ghaziabad" Value="3" />
-                 <asp:ListItem Text="Gurgaon" Value="4" />
-            </asp:RadioButtonList>
-        </p>
-         <p>
-             <asp:Label ID="lblDate" runat="server" Text="Date"></asp:Label>
-                <asp:TextBox ID="tbxDate" type="date" runat="server"></asp:TextBox>
-           
-       </p>      
-        <p>
-                <asp:Label ID="lblGuests" runat="server" Text="No Of Guests"></asp:Label>
-                <asp:TextBox ID="tbxGuests" type="text" runat="server"></asp:TextBox>
-        </p>
+      <asp:Button ID="btnlogout" runat="server" Text="LOG OUT" OnClick="btnlogout_Click" />
+    </form>			</p>
 
-     <asp:Label ID="lblFood" runat="server" Text="Food"></asp:Label>
-            <asp:RadioButtonList ID="rbFood" runat="server">
-                <asp:ListItem Text="none" Value="none" />
-                 <asp:ListItem Text="veg" Value="veg" />
-                 <asp:ListItem Text="non veg" Value="non veg" />
-                   <asp:ListItem Text="veg+non veg" Value="veg+non veg" />
+</div>
 
-          </asp:RadioButtonList>
-         <asp:Label ID="lblMusic" runat="server" Text="Music"></asp:Label>
-            <asp:RadioButtonList ID="rbMusic" runat="server">
-                <asp:ListItem Text="none" Value="none" />
-                 <asp:ListItem Text="dj" Value="dj" />
-                <asp:ListItem Text="light music" Value="light music" />
-                   
+<div id="createevent2">
+	<a href="createEvent.aspx"><img src="../assets/images/addevent.svg" id="addimg" alt="Create Event"></a>
+</div>
 
-          </asp:RadioButtonList>
-         <asp:Label ID="lblDecoration" runat="server" Text="Decoration"></asp:Label>
-            <asp:RadioButtonList ID="rbDecoration" runat="server">
-                <asp:ListItem Text="none" Value="none" />
-                 <asp:ListItem Text="Standard" Value="standard" />
-                 <asp:ListItem Text="Deluxue" Value="deluxue" />
-                   
+<div id="footer">
+	<div id="footertext">
+	<p id="partyfooter">Party Planner</p>
+	<p id="footerinfo">-A Project By Ayush Singh, Vishesh Maheshwari and Akshay</p>
+</div>
+<div id="footerlinks">
+	<a href="#"><img src="../assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"></a>
+	<a href="#"><img src="../assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"></a>
+</div>
+<img src="../assets/images/SILogo.svg" alt="SILogo" id="SI">
+</div>
 
-          </asp:RadioButtonList>
-         <asp:Label ID="lblCake" runat="server" Text="Cake"></asp:Label>
-            <asp:RadioButtonList ID="rbCake" runat="server">
-                <asp:ListItem Text="none" Value="none" />
-                 <asp:ListItem Text="pineapple" Value="pineapple" />
-                 <asp:ListItem Text="chocolate" Value="chocolate" />
-                   <asp:ListItem Text="black forest" Value="black forest" />
-                
-                <asp:ListItem Text="Vanilla" Value="Vanilla" />
+</div>
 
-          </asp:RadioButtonList>
-          <p>
-                <asp:Button ID="btnNext" runat="server" Text="Update" OnClick="btnNext_Click" />       
-        </p>
-    </div>
-    </form>
 </body>
 </html>

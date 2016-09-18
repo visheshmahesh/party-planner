@@ -18,14 +18,7 @@ public partial class mailing : System.Web.UI.Page
             msg.Subject = tbxSubject.Text;
             msg.Body = tbxMessage.Text;
             msg.IsBodyHtml = true;
-              if(FileUpload.HasFile)
-              {
-                //     msg.Attachments.Add(new Attachment(FileUpload.PostedFile.InputStream, FileUpload.));
-                //     msg.Attachments.Add(new Attachment(Server.MapPath("~/image.jpg")));
-           //     string FileName = Path.GetFileName(FileUpload.PostedFile.FileName);
-                msg.Attachments.Add(new Attachment(FileUpload.PostedFile.InputStream, "~/ image.jpg"));
-
-            }
+            msg.Attachments.Add(new Attachment(@"C:\Users\win10\Documents\Visual Studio 2015\WebSites\PartyPlanner\App_Data"));
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
@@ -41,8 +34,6 @@ public partial class mailing : System.Web.UI.Page
             lblResult.Text = e.Message;
         }
     }
-
-
 
 
 }

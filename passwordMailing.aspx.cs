@@ -45,13 +45,13 @@ public partial class passwordMailing : System.Web.UI.Page
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
                 smtp.Send(mm);
-                Response.Write("successfully sent");
+                Response.Write("<Script>alert('successfully sent')</Script>");
                 //   Response.Redirect("Login.aspx");
             }
         }
         catch (Exception ex)
         {
-            Response.Write("Error: " + ex.ToString());
+            Response.Write("<Script>alert('email not registered')</Script>");
         }
     }
     }

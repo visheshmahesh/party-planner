@@ -30,6 +30,10 @@
 
        
         <div id="admintable">
+                                                  <a href="AdminPanel.aspx"> <img src="./assets/images/goback.svg" id="goback" height="12%" width="15%" alt="Go Back"></a>
+
+             <p id="inviheading">Registered Users</p>
+
             <asp:GridView ID="GridViewData" runat="server" AutoGenerateColumns="False" OnRowCommand="GridViewData_RowCommand" OnRowDeleting="GridViewData_DeleteRow" OnRowUpdating="GridViewData_UpdateRow" CellPadding="4" GridLines="Horizontal" ForeColor="Black" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" >
             <Columns>
                    <asp:TemplateField>
@@ -99,19 +103,17 @@
                 <SortedDescendingCellStyle BackColor="#E5E5E5" />
                 <SortedDescendingHeaderStyle BackColor="#242121" />
             </asp:GridView>
-            <p><a href="adminRegistration.aspx">Click Here to Register New Admin</a></p>
         </div>
 
     </form>
     <div id="footer">
 	<div id="footertext">
 	<p id="partyfooter">Party Planner</p>
-	<p id="footerinfo">-A Project By Ayush Singh and Vishesh Maheshwari</p>
+	<p id="footerinfo">-A Project By Ayush, Vishesh and Akshay</p>
 </div>
 <div id="footerlinks">
-	<a href="https://www.facebook.com/ayush013"><img src="./assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"></a>
-	<a href="https://www.instagram.com/alphaayush"><img src="./assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"></a>
-	<p id="footeradmin"><a href="#">Contact Us</a></p>
+	<a href="#"><img src="./assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"></a>
+	<a href="#"><img src="./assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"></a>
 </div>
 <img src="./assets/images/SILogo.svg" alt="SILogo" id="SI">
 </div>

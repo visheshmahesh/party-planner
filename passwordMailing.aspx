@@ -21,9 +21,15 @@
          <div id="logstatus">
 			<p id="text">Not Logged In</p>
          </div>
+    <div id="goback">        <p><a href="Login.aspx">Go Back</a></p>
+</div>
+
     <div id="forgotpwd">
     <form id="form1" runat="server">
-    
+
+
+    		<p id="intro">Forgot Password?</p><br/>
+
          <asp:TextBox ID="tbxEmail" runat="server" placeholder="Enter your Email" type="email"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" controltovalidate="tbxEmail"  ErrorMessage="Email is required" ForeColor="red"></asp:RequiredFieldValidator>
 
@@ -37,9 +43,8 @@
 	<p id="footerinfo">-A Project By Ayush Singh, Vishesh Maheshwari And Akshay</p>
 </div>
 <div id="footerlinks">
-	<a href="https://www.facebook.com/ayush013"><img src="../assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"></a>
-	<a href="https://www.instagram.com/alphaayush"><img src="../assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"></a>
-	<p id="footeradmin"><a href="#">Contact Us</a></p>
+	<a href="#"><img src="../assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"></a>
+	<a href="#"><img src="../assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"></a>
 </div>
 <img src="../assets/images/SILogo.svg" alt="SILogo" id="SI">
 </div>

@@ -11,10 +11,29 @@ public partial class gridView : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       if(!IsPostBack)
-        
+        if (!IsPostBack)
+        {
             BindGridViewData();
-        
+        }
+        if (Session["UserName"] != null || Session["UserId"] != null)
+        {
+           
+        }
+        else
+        {
+            Session["UserName"] = null;
+            Session["UserId"] = null;
+            Response.Redirect("Login.aspx");
+        }
+
+
+    }
+    protected void btnlogout_Click(object sender, EventArgs e)
+    {
+        Session["UserName"] = null;
+        Session["UserId"] = null;
+        Response.Redirect("Login.aspx");
+
     }
     protected void BindGridViewData()
     {
@@ -87,12 +106,7 @@ public partial class gridView : System.Web.UI.Page
 
 
     }
-    protected void btnlogout_Click(object sender, EventArgs e)
-    {
-        Session.Abandon();
-        Response.Redirect("Login.aspx");
-
-    }
+   
     protected void GridViewData_DeleteRow(Object sender, GridViewDeleteEventArgs e)
     {
         Label lblUserId = (Label)GridViewData.Rows[e.RowIndex].FindControl("lblUserId");

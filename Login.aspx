@@ -27,10 +27,10 @@
 		<p id="intro">Login to Get Started</p><br/>
 
             <asp:TextBox ID="tbxEnterEmail" type="email" placeholder="Enter your Email" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" controltovalidate="tbxEnterEmail" ErrorMessage="Email is required" ValidationGroup="login" ForeColor="red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" controltovalidate="tbxEnterEmail" ErrorMessage="Email is required" ValidationGroup="login" ForeColor="red" Font-Names="Calibri" Font-Size="Small"></asp:RequiredFieldValidator>
  
                 <asp:TextBox ID="tbxEnterpassword" type="password"  placeholder="Enter your password" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" controltovalidate="tbxEnterpassword" ErrorMessage="Password is required" ValidationGroup="login" ForeColor="red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" controltovalidate="tbxEnterpassword" ErrorMessage="Password is required" ValidationGroup="login" ForeColor="red" Font-Names="Calibri" Font-Size="Small"></asp:RequiredFieldValidator>
                 
             <asp:Button ID="btnLogin" runat="server" text="LOGIN" OnClick="btnLogin_Click" />
               
@@ -43,26 +43,26 @@
             </asp:HyperLink>
         </div>
         </div>    
-    <div id="divider" style="background-color: #95a5a6; height: 140vh; width: 0.1vw; float:left;"></div>
+    <div id="divider" style="background-color: #95a5a6; height: 100vh; width: 0.1vw; float:left;"></div>
 
         <div id="signup">
     		<div id="signform">
            <p id="intro1">Signup if you haven't already</p><br/>
 
                 <asp:TextBox ID="tbxName" type="text" placeholder="Enter your Name" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" controltovalidate="tbxName" ErrorMessage="Name is required" ValidationGroup="signup" ForeColor="red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" controltovalidate="tbxName" ErrorMessage="Name is required" ValidationGroup="signup" ForeColor="red" Font-Names="Calibri" Font-Size="Small"></asp:RequiredFieldValidator>
  
                 <asp:TextBox ID="tbxEmail" type="email"  placeholder="Enter your Email" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" controltovalidate="tbxEmail" ErrorMessage="Email is required" ValidationGroup="signup" ForeColor="red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" controltovalidate="tbxEmail" ErrorMessage="Email is required" ValidationGroup="signup" ForeColor="red" Font-Names="Calibri" Font-Size="Small"></asp:RequiredFieldValidator>
                 
                 <asp:TextBox ID="tbxPassword" placeholder="Enter your Password" type="password" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorPassword" runat="server" controltovalidate="tbxPassword" ErrorMessage="Password is required" ValidationGroup="signup" ForeColor="red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorPassword" runat="server" controltovalidate="tbxPassword" ErrorMessage="Password is required" ValidationGroup="signup" ForeColor="red" Font-Names="Calibri" Font-Size="Small"></asp:RequiredFieldValidator>
 
                 <asp:TextBox ID="tbxConfirmPassword"  type="password" placeholder="Confirm Password"  runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorConfirmPassword" runat="server" controltovalidate="tbxConfirmPassword" ErrorMessage="Passwords do not match" ValidationGroup="signup" ForeColor="red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorConfirmPassword" runat="server" controltovalidate="tbxConfirmPassword" ErrorMessage="Passwords do not match" ValidationGroup="signup" ForeColor="red" Font-Names="Calibri" Font-Size="Small"></asp:RequiredFieldValidator>
 
                 <asp:TextBox ID="tbxDOB" type="date" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorDOB" runat="server" controltovalidate="tbxDOB" ErrorMessage="Date of birth is required" ValidationGroup="signup" ForeColor="red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorDOB" runat="server" controltovalidate="tbxDOB" ErrorMessage="Date of birth is required" ValidationGroup="signup" ForeColor="red" Font-Names="Calibri" Font-Size="Small"></asp:RequiredFieldValidator>
                          
             <div id="labeldropdown">
             <asp:Label ID="lblLoginAs" runat="server" Text="Register As" ></asp:Label>
@@ -80,14 +80,13 @@
 <div id="footer">
 	<div id="footertext">
 	<p id="partyfooter">Party Planner</p>
-	<p id="footerinfo">-A Project By Ayush Singh, Vishesh Maheshwari And Akshay Sachan</p>
+	<p id="footerinfo">-A Project By Ayush, Vishesh And Akshay</p>
 </div>
 <div id="footerlinks">
-	<a href="https://www.facebook.com/ayush013"><img src="../assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"/></a>
-	<a href="https://www.instagram.com/alphaayush"><img src="../assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"/></a>
-	<p id="footeradmin"><a href="#">Contact Us</a></p>
+	<a href="#"><img src="./assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"/></a>
+	<a href="#"><img src="./assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"/></a>
 </div>
-<img src="../assets/images/SILogo.svg" alt="SILogo" id="SI"/>
+<img src="./assets/images/SILogo.svg" alt="SILogo" id="SI"/>
 </div>
 
     </div>

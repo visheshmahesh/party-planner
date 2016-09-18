@@ -12,14 +12,15 @@ public partial class createEvent : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       if(Session["UserName"]!=null)
+       if(Session["UserName"]!=null|| Session["UserId"] != null)
         {
-            Response.Write("WELCOME");
-            Response.Write(Session["UserName"]);
+
         }
        else
         {
             Session["UserName"] = null;
+            Session["UserId"] = null;
+            Response.Redirect("Login.aspx");
         }
         if (!IsPostBack)
         {
@@ -47,7 +48,7 @@ public partial class createEvent : System.Web.UI.Page
     }
     protected void btnNext_Click(object sender, EventArgs e)
     {
-        Response.Write(Session["UserName"]);
+       
         try
         {
 
@@ -57,30 +58,10 @@ public partial class createEvent : System.Web.UI.Page
             string selectValue4 = this.rbDecoration.SelectedValue;
             string selectValue5 = this.rbCake.SelectedValue;
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
-            conn.Open();
 
-            string forEventId = "select * from EVENT_DETAILS where UserId='" + Session["UserId"] + "'";
-            //AND CityId='" + selectValue2 + "' AND Date='" + tbxDate.Text + "'";
-
-            SqlDataReader myReader = null;
-            SqlCommand cmdEventId = new SqlCommand(forEventId, conn);
-            myReader = cmdEventId.ExecuteReader();
-
-            //EventId = Convert.ToInt32(cmdEventId.ExecuteScalar().ToString());
-            if (myReader.Read())
-            {
-                Session["EventId"] = Convert.ToInt32(myReader[1]);
-                //Response.Write(Session["EventId"]);
-
-            }
-            conn.Close();
-            //string venueId = "select Name from VENUE where City=1";
-            //SqlCommand cmdvenue = new SqlCommand(venueId, conn);
-
-            //Response.Write(venueId);
             conn.Open();
             int VenueId,CityId;
-            string getFields = "insert into EVENT_DETAILS(UserId,CityId,EventId,VenueId,Date) values(@UserId,@city,@event,@venue,@date)";
+            string getFields = "insert into EVENT_DETAILS(UserId,CityId,EventId,VenueId,DATE,Food,Music,Decoration,Cake) values(@UserId,@city,@event,@venue,@date,@Food,@Music,@Decoration,@Cake)";
             SqlCommand cmd = new SqlCommand(getFields, conn);
             string forVenueId = "select VenueId from VENUE where Name='" + ddlVenue.SelectedValue.ToString() + "'";
             SqlCommand cmdVenueId = new SqlCommand(forVenueId, conn);
@@ -89,42 +70,23 @@ public partial class createEvent : System.Web.UI.Page
             string forCityId = "select CityId from CITY where Name='" + ddlCity.SelectedValue.ToString() + "'";
             SqlCommand cmdCityId = new SqlCommand(forCityId, conn);
             CityId = Convert.ToInt32(cmdCityId.ExecuteScalar().ToString());
-            conn.Close();
-
 
             cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"]));
-            // UserId = Session["UserId"];
             cmd.Parameters.AddWithValue("@event", selectValue1);
-            cmd.Parameters.AddWithValue("@city",CityId);
-            //     cmd.Parameters.AddWithValue("@city", selectValue2);
-            cmd.Parameters.AddWithValue("@venue",VenueId);
+            cmd.Parameters.AddWithValue("@city", CityId);
+            cmd.Parameters.AddWithValue("@venue", VenueId);
             cmd.Parameters.AddWithValue("@date", tbxDate.Text);
-           // cmd.Parameters.AddWithValue("@noOfGuests", tbxGuests.Text);
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            //conn.Close();
-            // Response.Redirect("addons.aspx");
-            // SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
-            //conn.Open();
-            string getField = "insert into ITEM_DETAILS(UserId,Food,Music,Decoration,Cake) values(@UserId,@Food,@Music,@Decoration,@Cake)";
-
-            SqlCommand cmd1 = new SqlCommand(getField, conn);
-            cmd1.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"]));
-
-            cmd1.Parameters.AddWithValue("@Food", selectValue2);
-
-            cmd1.Parameters.AddWithValue("@Music", selectValue3);
-            cmd1.Parameters.AddWithValue("@Decoration", selectValue4);
-            cmd1.Parameters.AddWithValue("@Cake", selectValue5);
-
+            cmd.Parameters.AddWithValue("@Food", selectValue2);
+            cmd.Parameters.AddWithValue("@Music", selectValue3);
+            cmd.Parameters.AddWithValue("@Decoration", selectValue4);
+            cmd.Parameters.AddWithValue("@Cake", selectValue5);
 
             cmd.ExecuteNonQuery();
-            Response.Write("Congratulations , you have successfully booked your event");
-            //Response.Redirect(".aspx");
             conn.Close();
-            Response.Write(Session["EventId"]);
-            Response.Write("you have Registered your Event Successfully, you can also update your event here.");
-            Response.Redirect("CreateEvent.html");
+
+ 
+         //   Response.Write("Congratulations , you have successfully booked your event");
+           Response.Redirect("Success.aspx");
 
 
         }
@@ -135,7 +97,8 @@ public partial class createEvent : System.Web.UI.Page
     }
     protected void btnlogout_Click(object sender, EventArgs e)
     {
-        Session.Abandon();
+        Session["UserName"] = null;
+        Session["UserId"] = null;
         Response.Redirect("Login.aspx");
 
     }

@@ -31,6 +31,7 @@
 </div>
 
         <div id="addevent">
+                          <a href="createUpdate.aspx"> <img src="./assets/images/goback.svg" height="15%" width="15%" style="margin-left:5vw;" alt="Go Back"></a>
 
 		<fieldset id="eventtype">
 			<label id="addlabel">SELECT EVENT TYPE</label>
@@ -125,12 +126,11 @@
 <div id="footer">
 	<div id="footertext">
 	<p id="partyfooter">Party Planner</p>
-	<p id="footerinfo">-A Project By Ayush Singh and Vishesh Maheshwari</p>
+	<p id="footerinfo">-A Project By Ayush, Vishesh and Akshay</p>
 </div>
 <div id="footerlinks">
-	<a href="https://www.facebook.com/ayush013"><img src="../assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"></a>
-	<a href="https://www.instagram.com/alphaayush"><img src="../assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"></a>
-	<p id="footeradmin"><a href="#">Contact Us</a></p>
+	<a href="#"><img src="../assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"></a>
+	<a href="#"><img src="../assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"></a>
 </div>
 <img src="../assets/images/SILogo.svg" alt="SILogo" id="SI"/>
 </div>

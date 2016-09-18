@@ -30,40 +30,32 @@
 
        
         <div id="admintable">
-            <asp:GridView ID="GridViewData" runat="server" AutoGenerateColumns="False" OnRowCommand="GridViewData_RowCommand" OnRowDeleting="GridViewData_DeleteRow" OnRowUpdating="GridViewData_UpdateRow" CellPadding="4" GridLines="Horizontal" ForeColor="Black" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" >
+                                                  <a href="AdminPanel.aspx"> <img src="./assets/images/goback.svg" id="goback" height="20%" width="20%" alt="Go Back"></a>
+
+             <p id="inviheading">Users' Event Details</p>
+       
+            <asp:GridView ID="GridViewDataEvent" runat="server" AutoGenerateColumns="False" OnRowCommand="GridViewDataEvent_RowCommand" OnRowDeleting="GridViewDataEvent_DeleteRow" OnRowUpdating="GridViewDataEvent_UpdateRow" CellPadding="4" GridLines="None" ForeColor="#333333" >
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                    <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:LinkButton ID="lbEdit" CommandArgument='<%# Eval("Id") %>' runat="server" CommandName="EditRow" Text="Edit">
+                            <asp:LinkButton ID="lbEdit" CommandArgument='<%# Eval("UserId") %>' runat="server" CommandName="EditRow" Text="Edit">
                             </asp:LinkButton>
-                            <asp:LinkButton ID="lbDelete" CommandArgument='<%# Eval("Id") %>' runat="server" CommandName="Delete" Text="Delete">
+                            <asp:LinkButton ID="lbDelete" CommandArgument='<%# Eval("UserId") %>' runat="server" CommandName="Delete" Text="Delete">
                             </asp:LinkButton>
                         </ItemTemplate>
                         <EditItemTemplate>
-                           <asp:LinkButton ID="lbUpdate" CommandArgument='<%# Eval("Id") %>' runat="server" CommandName="Update" Text="Update">
+                           <asp:LinkButton ID="lbUpdate" CommandArgument='<%# Eval("UserId") %>' runat="server" CommandName="Update" Text="Update">
                            </asp:LinkButton>
-                           <asp:LinkButton ID="lbCancel" CommandArgument='<%# Eval("Id") %>' runat="server" CommandName="CancelUpdate" Text="Cancel">
+                           <asp:LinkButton ID="lbCancel" CommandArgument='<%# Eval("UserId") %>' runat="server" CommandName="CancelUpdate" Text="Cancel">
                            </asp:LinkButton>
                             
                               
                             
                         </EditItemTemplate>
-                       </asp:TemplateField>
-                  
-                    <asp:TemplateField HeaderText="Id">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="tbxId" runat="server" Text='<%# Eval("Id") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="lblId" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
-                        </ItemTemplate>
                     </asp:TemplateField>
-                        
-                     <asp:TemplateField HeaderText="UserId">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="tbxUserId" runat="server" Text='<%# Eval("UserId") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                         <ItemTemplate>
+                    <asp:TemplateField HeaderText="UserId">
+                        <ItemTemplate>
                             <asp:Label ID="lblUserId" runat="server" Text='<%# Eval("UserId") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -71,7 +63,7 @@
                         <EditItemTemplate>
                             <asp:TextBox ID="tbxEventId" runat="server" Text='<%# Eval("EventId") %>'></asp:TextBox>
                         </EditItemTemplate>
-                         <ItemTemplate>
+                        <ItemTemplate>
                             <asp:Label ID="lblEventId" runat="server" Text='<%# Eval("EventId") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -83,13 +75,12 @@
                             <asp:Label ID="lblCityId" runat="server" Text='<%# Eval("CityId") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-
-                  <asp:TemplateField HeaderText="VenueId">
+                    <asp:TemplateField HeaderText="VenueId">
                         <EditItemTemplate>
-                            <asp:TextBox ID="tbxVenueId" type="date" runat="server" Text='<%# Eval("VenueId") %>'></asp:TextBox>
+                            <asp:TextBox ID="tbxVenueId" runat="server" Text='<%# Eval("VenueId") %>'></asp:TextBox>
                         </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="lbVenueId" type="date" runat="server" Text='<%# Eval("VenueId") %>'></asp:Label>
+                         <ItemTemplate>
+                            <asp:Label ID="lblVenueId" runat="server" Text='<%# Eval("VenueId") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                  
@@ -99,33 +90,70 @@
                             <asp:TextBox ID="tbxDate" type="date" runat="server" Text='<%# Eval("Date") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="lbdate" type="date" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
+                            <asp:Label ID="lblDate" type="date" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                   
+
+                 <asp:TemplateField HeaderText="Food">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="tbxFood" type="text" runat="server" Text='<%# Eval("Food") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblFood" type="text" runat="server" Text='<%# Eval("Food") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                 <asp:TemplateField HeaderText="Decoration">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="tbxDecoration" type="text" runat="server" Text='<%# Eval("Decoration") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblDecoration" type="text" runat="server" Text='<%# Eval("Decoration") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                 <asp:TemplateField HeaderText="Music">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="tbxMusic" type="text" runat="server" Text='<%# Eval("Music") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblMusic" type="text" runat="server" Text='<%# Eval("Music") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                 <asp:TemplateField HeaderText="Cake">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="tbxCake" type="text" runat="server" Text='<%# Eval("Cake") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblCake" type="text" runat="server" Text='<%# Eval("Cake") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+              
                 </Columns>
-                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="white" />
-                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                <SortedDescendingHeaderStyle BackColor="#242121" />
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="white" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
-            <p><a href="adminRegistration.aspx">Click Here to Register New Admin</a></p>
         </div>
 
     </form>
     <div id="footer">
 	<div id="footertext">
 	<p id="partyfooter">Party Planner</p>
-	<p id="footerinfo">-A Project By Ayush Singh and Vishesh Maheshwari</p>
+	<p id="footerinfo">-A Project By Ayush, Vishesh and Akshay</p>
 </div>
 <div id="footerlinks">
-	<a href="https://www.facebook.com/ayush013"><img src="./assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"></a>
-	<a href="https://www.instagram.com/alphaayush"><img src="./assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"></a>
-	<p id="footeradmin"><a href="#">Contact Us</a></p>
+	<a href="#"><img src="./assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"></a>
+	<a href="#"><img src="./assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"></a>
 </div>
 <img src="./assets/images/SILogo.svg" alt="SILogo" id="SI">
 </div>

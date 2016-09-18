@@ -58,6 +58,13 @@ p {
   font-family: Reef;
 }
 
+h1 {
+  font-family: Reef;
+  margin: 0;
+  text-align: center;
+}
+
+
 #hint {
   text-align: right;
   padding-right: 1vmin;
@@ -156,13 +163,13 @@ a {
 
 #login {
   float: left;
-  height: 140vh;
+  height: 100vh;
   width: 49.9%;
 }
 
 #signup {
   float: left;
-  height: 140vh;
+  height: 100vh;
   width: 50%;
 }
 
@@ -255,13 +262,21 @@ a {
 /* FORGOT PASSWORD */
 
 #forgotpwd {
-  height: 80vh;
   width: 50vw;
+  height: 40vh;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 5vh;
   display: block;
+  clear: both;
+  background-color: white;
+  box-shadow: 0 0 10px black;
 }
 
+#goback {
+  clear: both;
+  margin-left: 5vw;
+}
 /* CREATE / UPDATE EVENT STUFF */
 
 #text2 {
@@ -281,37 +296,39 @@ a {
   color: #fff;
   float: right;
   margin-right: 10vmin;
+  border-radius: 15px;
 }
 
 
 #createevent {
   float: left;
-  height: 100vh;
+  height: 70vh;
   width: 49.9%;
   position: relative;
 }
 
 #updateevent {
   float: left;
-  height: 100vh;
+  height: 70vh;
   width: 50%;
   position: relative;
 }
 
 #addimg {
-  margin: 0 5vmin;
-  box-shadow: 0 0 2px #000;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 40px;
+  height: 60vh;
+  width: 28vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   margin-top: 5%;
-  height: 90%;
-  width: 90%;
 }
 
 #addimg:hover {
-  -webkit-filter: blur(5px);
-  filter: blur(1px);
+  -webkit-filter: blur(0.7px);
+  filter: blur(0.7px);
   transition: 0.5s;
+  box-shadow: 0 0 15px black;
 }
 
 #hovertext1 {
@@ -462,7 +479,17 @@ fieldset {
 /* ADMIN TABLE AND REGISTRATION*/
 
 #admintable {
-  margin-left: 40vh;
+  position: relative;
+  clear: both;
+}
+
+#GridViewData {
+  margin-left: 10vw;
+}
+
+#goback {
+position: absolute;
+left: 0;
 }
 
 #signup2 {
@@ -475,8 +502,164 @@ fieldset {
   background-color: #fff;
   border: 1px solid #95a5a6;
   border-radius: 8px;
-  margin: 10vmin 30vw;
+  margin: 5vmin 30vw;
   width: 70%;
   padding: 0 0 2vmin 0;
   box-shadow: 0 0 10px #95a5a6;
+}
+
+/* INVITATION SENDER */
+
+#invigen {
+  width: 70%;
+  float: left;
+  height: 95vh;
+  position: relative;
+}
+
+#inviheading {
+  padding: 2vh;
+  text-align: center;
+  color: white;
+  font-size: 6vmin;
+  background-color: #34495e;
+  box-shadow: 0 0 15px black;
+  margin: 0;
+}
+
+#prevtext {
+  padding: 3.3vh;
+  text-align: center;
+  color: white;
+  font-size: 4vmin;
+  background-color: #34495e;
+  box-shadow: 0 0 15px black;
+  margin: 0;
+}
+
+#previewpic {
+  width: 30%;
+  border: 1px solid #95a5a6;
+  height: 95vh;
+  right: 0;
+  position: absolute;
+  top:30vh;
+}
+
+#invibtn1, #invibtn2 {
+  width: 40%;
+  border-width: 0;
+  padding: 2vmin;
+  font-size: 3vmin;
+  background-color: #34495e;
+  color: #fff;
+  border-radius: 20px;
+  margin: 2vh auto;
+  right: 0;
+  left: 0;
+  display: block;
+  position: absolute;
+
+}
+
+#invibtn2 {
+  top: 70vh;
+}
+#invibtn2:disabled {
+  opacity: 0.5;
+}
+
+#inputname, #inputdate {
+    display: block;
+    box-sizing: border-box;
+    width: 40%;
+    padding: 2vmin 1vmin 2vmin 4vmin;
+    margin: 3vmin auto;
+    border: 1px solid #95a5a6;
+    outline: none;
+    border-radius: 4px;
+    font-size: 2vmin;
+}
+
+#inputname:focus {
+    border: 1px solid #34495e;
+    box-shadow: 0 0 10px #34495e, 0 0 10px #34495e;
+    transition: 0.5s;
+}
+
+#type2 {
+margin-left: 21vw;
+}
+
+#invitype {
+  display: block;
+  border-radius: 4px;
+  padding: 1vmin 2vmin;
+  width: 27vw;
+  font-size: 3vmin;
+}
+
+#piccontent {
+  position: relative;
+}
+
+#Layer_1 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#Layer_2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#invilink {
+  position: absolute;
+  right: 1vw;
+  top: 80vh;
+}
+
+/* BOOK NOW BUTTON */
+
+#btnBookNow {
+  display: block;
+  margin: 1vmin auto;
+  padding: 4vmin;
+  width: 80%;
+  border-width: 0;
+  border-radius: 20px;
+  font-size: 3vmin;
+  font-weight: bold;
+  background-image: url("../assets/images/booknow.svg");
+  color: #fff;
+}
+
+#btnBookNow:hover {
+opacity: 0.8;
+}
+
+#btnBookNow:focus {
+  opacity: 0.9;
+}
+
+
+#createevent2 {
+clear: both;
+  height: 70vh;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+
+#adminpanel {
+  width: 40%;
+  clear: both;
+  height: 60vh;
+  position: relative;
+  margin-left: 25vw;
 }

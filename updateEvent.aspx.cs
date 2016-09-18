@@ -19,15 +19,16 @@ public partial class updateEvent : System.Web.UI.Page
             DataTable dt = new DataTable();
             conn.Open();
             SqlDataReader myReader = null;
-            SqlCommand myCommand = new SqlCommand("SELECT EVENT_DETAILS.EventId,EVENT_DETAILS.CityId, EVENT_DETAILS.VenueId, EVENT_DETAILS.DATE, ITEM_DETAILS.Food, ITEM_DETAILS.Decoration,ITEM_DETAILS.Music,ITEM_DETAILS.Cake FROM EVENT_DETAILS INNER JOIN ITEM_DETAILS ON EVENT_DETAILS.UserId = ITEM_DETAILS.UserId ", conn);
+            SqlCommand myCommand = new SqlCommand("SELECT * FROM EVENT_DETAILS WHERE UserId='" + Session["UserId"] + "'", conn);
             myReader = myCommand.ExecuteReader();
 
             while (myReader.Read())
             {
-                tbxDate.Text = (myReader["DATE"].ToString());
+                
                 rbEvent.SelectedValue = (myReader["EventId"].ToString());
                 this.ddlCity.SelectedValue = (myReader["CityId"].ToString());
                 this.ddlVenue.SelectedValue = (myReader["VenueId"].ToString());
+                tbxDate.Text = (myReader["DATE"].ToString());
                 this.rbFood.SelectedValue = (myReader["Food"].ToString());
                 this.rbDecoration.SelectedValue = (myReader["Decoration"].ToString());
                 this.rbMusic.SelectedValue = (myReader["Music"].ToString());
@@ -37,24 +38,25 @@ public partial class updateEvent : System.Web.UI.Page
 
         }
     }
+    protected void btnlogout_Click(object sender, EventArgs e)
+    {
+        Session["UserName"] = null;
+        Session["UserId"] = null;
+        Response.Redirect("Login.aspx");
+
+    }
     protected void btnNext_Click(object sender, EventArgs e)
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
 
-        SqlCommand cmd = new SqlCommand("UPDATE EVENT_DETAILS SET DATE = @date, NoOfGuests = @guests, EventId = @event, VenueId= @venue where Id='" + Session["UseId"] + "'", conn);
         conn.Open();
-
-        cmd.Parameters.AddWithValue("@date", tbxDate.Text);
-        cmd.Parameters.AddWithValue("@guests", tbxGuests.Text);
-        cmd.Parameters.AddWithValue("@event", this.rbEvent.SelectedValue.ToString());
-        cmd.Parameters.AddWithValue("@city", this.ddlCity.SelectedValue.ToString());
-        cmd.Parameters.AddWithValue("@venue", this.ddlVenue.SelectedValue.ToString());
-        cmd.ExecuteNonQuery();
-        conn.Close();
-
-        SqlCommand cmd1 = new SqlCommand("UPDATE ITEM_DETAILS SET Food = @food, Decoration = @decoration, Music= @music, Cake= @cake where UserId='" + Session["UserId"] + "'", conn);
-        conn.Open();
-
+        SqlCommand cmd1 = new SqlCommand("UPDATE EVENT_DETAILS SET  EventId = @event, CityId=@city, VenueId= @venue, DATE = @date, Food = @food, Decoration = @decoration, Music= @music, Cake= @cake where UserId='" + Session["UserId"] + "'", conn);
+       
+       
+        cmd1.Parameters.AddWithValue("@event", this.rbEvent.SelectedValue.ToString());
+        cmd1.Parameters.AddWithValue("@city", this.ddlCity.SelectedValue.ToString());
+        cmd1.Parameters.AddWithValue("@venue", this.ddlVenue.SelectedValue.ToString());
+        cmd1.Parameters.AddWithValue("@date", tbxDate.Text);
         cmd1.Parameters.AddWithValue("@food", this.rbFood.SelectedValue.ToString());
         cmd1.Parameters.AddWithValue("@music", this.rbMusic.SelectedValue.ToString());
         cmd1.Parameters.AddWithValue("@decoration", this.rbDecoration.SelectedValue.ToString());

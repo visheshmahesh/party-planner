@@ -6,18 +6,36 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
-using System.Data;
 
-public partial class gridView : System.Web.UI.Page
+public partial class eventView : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
+        {
+            BindGridViewDataEvent();
+        }
+        if (Session["UserName"] != null || Session["UserId"] != null)
+        {
 
-            BindGridViewData();
+        }
+        else
+        {
+            Session["UserName"] = null;
+            Session["UserId"] = null;
+            Response.Redirect("Login.aspx");
+        }
+
 
     }
-    protected void BindGridViewData()
+    protected void btnlogout_Click(object sender, EventArgs e)
+    {
+        Session["UserName"] = null;
+        Session["UserId"] = null;
+        Response.Redirect("Login.aspx");
+
+    }
+    protected void BindGridViewDataEvent()
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
         try
@@ -25,55 +43,62 @@ public partial class gridView : System.Web.UI.Page
             string getfields = "SELECT * from EVENT_DETAILS";
             SqlCommand cmd = new SqlCommand(getfields, conn);
             conn.Open();
-            GridViewData.DataSource = cmd.ExecuteReader();
-            GridViewData.DataBind();
+            GridViewDataEvent.DataSource = cmd.ExecuteReader();
+            GridViewDataEvent.DataBind();
             conn.Close();
         }
         catch (Exception ex)
         {
-
+            Response.Write("Error: " + ex.ToString());
         }
     }
-    protected void GridViewData_RowCommand(object sender, GridViewCommandEventArgs e)
+    protected void GridViewDataEvent_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "EditRow")
         {
             int rowIndex = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
-            GridViewData.EditIndex = rowIndex;
-            BindGridViewData();
+            GridViewDataEvent.EditIndex = rowIndex;
+            BindGridViewDataEvent();
         }
 
 
         else if (e.CommandName == "CancelUpdate")
         {
-            GridViewData.EditIndex = -1;
-            BindGridViewData();
+            GridViewDataEvent.EditIndex = -1;
+            BindGridViewDataEvent();
 
         }
 
 
-
     }
-    protected void GridViewData_UpdateRow(Object sender, GridViewUpdateEventArgs e)
+    protected void GridViewDataEvent_UpdateRow(Object sender, GridViewUpdateEventArgs e)
     {
-        GridViewRow row = (GridViewRow)GridViewData.Rows[e.RowIndex];
-        Label Id = (Label)row.FindControl("lblId");
-        TextBox tbxUserId = (TextBox)row.FindControl("tbxUserId");
+        GridViewRow row = (GridViewRow)GridViewDataEvent.Rows[e.RowIndex];
+        Label UserId = (Label)row.FindControl("lblUserId");
         TextBox tbxEventId = (TextBox)row.FindControl("tbxEventId");
         TextBox tbxCityId = (TextBox)row.FindControl("tbxCityId");
         TextBox tbxVenueId = (TextBox)row.FindControl("tbxVenueId");
         TextBox tbxDate = (TextBox)row.FindControl("tbxDate");
+        TextBox tbxFood = (TextBox)row.FindControl("tbxFood");
+        TextBox tbxDecoration = (TextBox)row.FindControl("tbxDecoration");
+        TextBox tbxMusic = (TextBox)row.FindControl("tbxMusic");
+        TextBox tbxCake = (TextBox)row.FindControl("tbxCake");
+
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
-        string updateFields = "update EVENT_DETAILS set UserId=@userId, EventId=@EventId, CityId=@cityId, VenueId=@venueId,DATE=@date where UserId=@userId";
+        string updateFields = "update EVENT_DETAILS set EventId=@eventId, CityId=@cityId, VenueId=@venueId, DATE=@date, Food=@food, Decoration=@decoration, Music=@music, Cake=@cake where UserId=@userId";
         try
         {
             SqlCommand cmd = new SqlCommand(updateFields, conn);
             conn.Open();
-            cmd.Parameters.AddWithValue("@Id", Id.Text);
-            cmd.Parameters.AddWithValue("@userId", tbxUserId.Text);
-            cmd.Parameters.AddWithValue("@EventId", tbxEventId.Text);
-            cmd.Parameters.AddWithValue("@VenueId", tbxVenueId.Text);
+            cmd.Parameters.AddWithValue("@userId", UserId.Text);
+            cmd.Parameters.AddWithValue("@eventId", tbxEventId.Text);
+            cmd.Parameters.AddWithValue("@cityId", tbxCityId.Text);
+            cmd.Parameters.AddWithValue("@venueId", tbxVenueId.Text);
             cmd.Parameters.AddWithValue("@date", tbxDate.Text);
+            cmd.Parameters.AddWithValue("@food", tbxFood.Text);
+            cmd.Parameters.AddWithValue("@decoration", tbxDecoration.Text);
+            cmd.Parameters.AddWithValue("@music", tbxMusic.Text);
+            cmd.Parameters.AddWithValue("@cake", tbxCake.Text);
 
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -89,25 +114,18 @@ public partial class gridView : System.Web.UI.Page
 
 
     }
-    protected void btnlogout_Click(object sender, EventArgs e)
-    {
-        Session.Abandon();
-        Response.Redirect("Login.aspx");
 
-    }
-    protected void GridViewData_DeleteRow(Object sender, GridViewDeleteEventArgs e)
+    protected void GridViewDataEvent_DeleteRow(Object sender, GridViewDeleteEventArgs e)
     {
-        Label lblUserId = (Label)GridViewData.Rows[e.RowIndex].FindControl("lblId");
+        Label lblUserId = (Label)GridViewDataEvent.Rows[e.RowIndex].FindControl("lblUserId");
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
-        string deleteFields = "delete from EVENT_DETAILS where UserId=@UserId";
+        string deleteFields = "delete from EVENT_DETAILS where UserId=@userId";
         SqlCommand cmd = new SqlCommand(deleteFields, conn);
         conn.Open();
-        cmd.Parameters.AddWithValue("@Id", lblId.Text);
+        cmd.Parameters.AddWithValue("@userId", lblUserId.Text);
         cmd.ExecuteNonQuery();
         conn.Close();
-        BindGridViewData();
-
-
+        BindGridViewDataEvent();
     }
 
 

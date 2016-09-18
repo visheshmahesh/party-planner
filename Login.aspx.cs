@@ -61,11 +61,11 @@ public partial class Login : System.Web.UI.Page
 
                     if (LoginAs == "1")
                     {
-                        Response.Redirect("gridView.aspx");
+                        Response.Redirect("AdminPanel.aspx");
                     }
                     else
                     {
-                        Response.Redirect("CreateEvent.html");
+                        Response.Redirect("createUpdate.aspx");
                     }
                 }
                 else
@@ -92,8 +92,10 @@ public partial class Login : System.Web.UI.Page
             }
             else if (tbxPassword.Text == tbxConfirmPassword.Text )
             {
+
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
                 conn.Open();
+
                 string checkEmail = "select count(*) from USERS where Email='" + tbxEmail.Text + "'";
                 SqlCommand cmdEmail = new SqlCommand(checkEmail, conn);
                 temp = Convert.ToInt32(cmdEmail.ExecuteScalar().ToString());
@@ -107,6 +109,7 @@ public partial class Login : System.Web.UI.Page
                 else
                 {
                     conn.Open();
+
                     string getFields = "insert into USERS(Name,Email,Password,DOB,UserType) values(@name, @email, @password,  @dob,@UserType)";
                     SqlCommand cmd = new SqlCommand(getFields, conn);
                     cmd.Parameters.AddWithValue("@name", tbxName.Text);
@@ -116,9 +119,14 @@ public partial class Login : System.Web.UI.Page
                     cmd.Parameters.AddWithValue("@dob", tbxDOB.Text);
                     cmd.Parameters.AddWithValue("@UserType", ddlLoginAs.SelectedValue.ToString());
                     UserId = Convert.ToInt32(cmd.ExecuteNonQuery());
+                    string forUserId = "select UserId from USERS where Email='" + tbxEmail.Text + "'";
+                    SqlCommand cmdUserId = new SqlCommand(forUserId, conn);
+                    UserId = Convert.ToInt32(cmdUserId.ExecuteScalar().ToString());
+                    Session["UserId"] = UserId;
+
                     conn.Close();
                     Response.Write("registered successfully");
-                    Response.Redirect("CreateEvent.html");
+                    Response.Redirect("update.aspx");
                 }
 
 
