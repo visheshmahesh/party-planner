@@ -6,6 +6,9 @@
 <head runat="server">
     <title></title>
     		<link rel="stylesheet" href="../css/content.css">
+    <script type="text/javascript" language="javascript" src="Scripts/AjaxCall.js"></script>
+                        
+
 
 </head>
 <body>
@@ -54,7 +57,7 @@
 		    </fieldset>
            	<fieldset>
                     <label id="addlabel">SELECT VENUE</label>
-              		<button type="button" id="change"onclick="Change()">VIEW VENUE</button>
+              		<asp:Button ID="change" runat="server" Text="VIEW VENUE" OnClick="change_Click"></asp:Button>
 
            <asp:DropDownList ID="ddlVenue" runat="server" AutoPostBack="true">
            </asp:DropDownList>
@@ -63,6 +66,14 @@
 				<img src="../assets/images/placeholder.png" id="venuepic"><p id="venuedesc">  </p>
 			</div>
 		</fieldset>
+
+		<fieldset>
+			<label id="addlabel">VENUE ID</label>
+           <asp:TextBox ID="tbxVenueId" type="text" runat="server"></asp:TextBox>
+         <!--   <asp:RequiredFieldValidator ID="RequiredFieldValidatorVenueId" runat="server" controltovalidate="tbxVenueId" ErrorMessage="Date is required" ForeColor="red"></asp:RequiredFieldValidator>-->
+          </fieldset>
+
+
 
 		<fieldset>
 			<label id="addlabel">EVENT DATE</label>

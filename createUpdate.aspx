@@ -38,7 +38,7 @@
 <div id="footer">
 	<div id="footertext">
 	<p id="partyfooter">Party Planner</p>
-	<p id="footerinfo">-A Project By Ayush Singh, Vishesh Maheshwari and Akshay</p>
+	<p id="footerinfo">-A Project By Ayush Singh, Vishesh Maheshwari and Akshay Sachan</p>
 </div>
 <div id="footerlinks">
 	<a href="#"><img src="../assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"></a>

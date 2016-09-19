@@ -41,7 +41,7 @@ public partial class adminRegistration : System.Web.UI.Page
             {
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
                 conn.Open();
-                string getFields = "insert into USERS(Name,Email,Password,DOB,UserType) values(@name, @email, @password, @dob,@UserType)";
+                string getFields = "insert into USERS(Name,Email,Password,DOB,UserType) values(@name, @email, @password, @dob,1)";
                 SqlCommand cmd = new SqlCommand(getFields, conn);
                 string checkEmail = "select count(*) from USERS where Email='" + tbxEmail.Text + "'";
                 SqlCommand cmdEmail = new SqlCommand(checkEmail, conn);
@@ -51,7 +51,7 @@ public partial class adminRegistration : System.Web.UI.Page
                 cmd.Parameters.AddWithValue("@password", hash);
 
                 cmd.Parameters.AddWithValue("@dob", tbxDOB.Text);
-                cmd.Parameters.AddWithValue("@UserType", ddlLoginAs.SelectedValue.ToString());
+             //   cmd.Parameters.AddWithValue("@UserType", ddlLoginAs.SelectedValue.ToString());
                 UserId = Convert.ToInt32(cmd.ExecuteNonQuery());
 
                 Response.Redirect("gridView.aspx");

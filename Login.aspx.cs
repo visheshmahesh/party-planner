@@ -12,7 +12,7 @@ public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -24,7 +24,7 @@ public partial class Login : System.Web.UI.Page
         {
             Response.Write("<script>alert('Please Enter All The Details')</script>");
         }
-        
+
         else
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString); //defining connection string
@@ -53,7 +53,7 @@ public partial class Login : System.Web.UI.Page
                 SqlCommand cmdUserName = new SqlCommand(forUserName, conn);
                 UserName = cmdUserName.ExecuteScalar().ToString();
 
-               
+
 
                 if (password == EncryptedPassword)
                 {
@@ -74,11 +74,25 @@ public partial class Login : System.Web.UI.Page
                 }
 
             }
+            else
+            {
+                Response.Write("<script>alert('Incorrect Details')</script>");
+            }
+
         }
     }
 
     protected void btnSignup_Click(object sender, EventArgs e)
     {
+        string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+        string dob = tbxDOB.Text;
+        int result = string.Compare(currentDate, dob);
+        if (result < 0 ||result==0)
+        {
+            lblInfo.Text = "Invalid date";
+
+            tbxDOB.Text = String.Empty;
+        }
         string hash = FormsAuthentication.HashPasswordForStoringInConfigFile(tbxPassword.Text, "SHA1");
 
 
@@ -110,14 +124,14 @@ public partial class Login : System.Web.UI.Page
                 {
                     conn.Open();
 
-                    string getFields = "insert into USERS(Name,Email,Password,DOB,UserType) values(@name, @email, @password,  @dob,@UserType)";
+                    string getFields = "insert into USERS(Name,Email,Password,DOB,UserType) values(@name, @email, @password,  @dob,2)";
                     SqlCommand cmd = new SqlCommand(getFields, conn);
                     cmd.Parameters.AddWithValue("@name", tbxName.Text);
                     cmd.Parameters.AddWithValue("@email", tbxEmail.Text);
                     cmd.Parameters.AddWithValue("@password", hash);
 
                     cmd.Parameters.AddWithValue("@dob", tbxDOB.Text);
-                    cmd.Parameters.AddWithValue("@UserType", ddlLoginAs.SelectedValue.ToString());
+                 //   cmd.Parameters.AddWithValue("@UserType", ddlLoginAs.SelectedValue.ToString());
                     UserId = Convert.ToInt32(cmd.ExecuteNonQuery());
                     string forUserId = "select UserId from USERS where Email='" + tbxEmail.Text + "'";
                     SqlCommand cmdUserId = new SqlCommand(forUserId, conn);
@@ -126,7 +140,7 @@ public partial class Login : System.Web.UI.Page
 
                     conn.Close();
                     Response.Write("registered successfully");
-                    Response.Redirect("update.aspx");
+                    Response.Redirect("createUpdate.aspx");
                 }
 
 

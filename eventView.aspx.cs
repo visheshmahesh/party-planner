@@ -117,6 +117,7 @@ public partial class eventView : System.Web.UI.Page
 
     protected void GridViewDataEvent_DeleteRow(Object sender, GridViewDeleteEventArgs e)
     {
+        int temp;
         Label lblUserId = (Label)GridViewDataEvent.Rows[e.RowIndex].FindControl("lblUserId");
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
         string deleteFields = "delete from EVENT_DETAILS where UserId=@userId";
@@ -124,6 +125,13 @@ public partial class eventView : System.Web.UI.Page
         conn.Open();
         cmd.Parameters.AddWithValue("@userId", lblUserId.Text);
         cmd.ExecuteNonQuery();
+        string count = "select count(*) from EVENT_DETAILS";
+        SqlCommand cmdEmail = new SqlCommand(count, conn);
+        temp = Convert.ToInt32(cmdEmail.ExecuteScalar().ToString());
+        if(temp==0)
+        {
+            Response.Write("NO RECOED TO DISPLAY !!!");
+        }
         conn.Close();
         BindGridViewDataEvent();
     }

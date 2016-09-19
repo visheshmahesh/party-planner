@@ -62,14 +62,15 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorConfirmPassword" runat="server" controltovalidate="tbxConfirmPassword" ErrorMessage="Passwords do not match" ValidationGroup="signup" ForeColor="red" Font-Names="Calibri" Font-Size="Small"></asp:RequiredFieldValidator>
 
                 <asp:TextBox ID="tbxDOB" type="date" runat="server"></asp:TextBox>
+                <asp:Label ID="lblInfo" runat="server"></asp:Label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorDOB" runat="server" controltovalidate="tbxDOB" ErrorMessage="Date of birth is required" ValidationGroup="signup" ForeColor="red" Font-Names="Calibri" Font-Size="Small"></asp:RequiredFieldValidator>
                          
-            <div id="labeldropdown">
+         <%--   <div id="labeldropdown">
             <asp:Label ID="lblLoginAs" runat="server" Text="Register As" ></asp:Label>
             <asp:DropDownList ID="ddlLoginAs" runat="server">
                 <asp:ListItem Selected="True" Value="2">User</asp:ListItem>
             </asp:DropDownList>
-                </div>
+                </div>--%>
 
                 <asp:Button ID="btnSignup" runat="server" Text="SIGN UP" OnClick="btnSignup_Click" />        
             </div>
@@ -84,7 +85,7 @@
 </div>
 <div id="footerlinks">
 	<a href="#"><img src="./assets/images/fb.svg" alt="Find Us on Facebook" id="footerimglink"/></a>
-	<a href="#"><img src="./assets/images/insta.svg" alt="Find us on Instagram" id="footerimglink"/></a>
+	<a href="#"><img src="./assets/images/insta.svg"  alt="Find us on Instagram" id="footerimglink2"/></a>
 </div>
 <img src="./assets/images/SILogo.svg" alt="SILogo" id="SI"/>
 </div>

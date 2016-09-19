@@ -50,13 +50,13 @@
                 <asp:TextBox ID="tbxDOB" type="date" runat="server"></asp:TextBox><br />
                <!--  <asp:RequiredFieldValidator ID="RequiredFieldValidatorDOB" runat="server" controltovalidate="tbxDOB" ErrorMessage="Date of birth is required" ForeColor="red"></asp:RequiredFieldValidator>-->
                          
-                   <div id="labeldropdown">
+       <%--            <div id="labeldropdown">
 
            <asp:Label ID="lblLoginAs" runat="server" Text="Register As" ></asp:Label>
             <asp:DropDownList ID="ddlLoginAs" runat="server">
                 <asp:ListItem Selected="True" Value="1">Admin</asp:ListItem>
              
-            </asp:DropDownList><br />
+            </asp:DropDownList><br />--%>
            <!--  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlLoginAs" ErrorMessage="field required" ForeColor="Red"></asp:RequiredFieldValidator>-->
                 </div>
 

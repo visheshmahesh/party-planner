@@ -30,7 +30,7 @@
 
        
         <div id="admintable">
-                                                  <a href="AdminPanel.aspx"> <img src="./assets/images/goback.svg" id="goback" height="12%" width="15%" alt="Go Back"></a>
+                <a href="AdminPanel.aspx"> <img src="./assets/images/goback.svg" id="goback" height="12%" width="15%" alt="Go Back"></a>
 
              <p id="inviheading">Registered Users</p>
 

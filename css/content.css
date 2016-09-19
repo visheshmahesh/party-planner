@@ -95,9 +95,9 @@ h1 {
 }
 
 #footertext {
-  float:left;
-  height: 100%;
-  width: 50%;
+position: absolute;
+width: 40VW;
+height: 25vh;
 }
 
 #partyfooter {
@@ -108,43 +108,41 @@ h1 {
   margin: 0;
 }
 
-#footerinfo {
-  font-size: 2.2vmin;
-  font-family: sans-serif;
-  color: white;
-  float: left;
-  margin: 20vmin 0 0 10vmin;
-  position: absolute;
-}
 
-#footerlinks {
-  float:left;
-  height: 100%;
+#footerimglink2 {
+  height: 7vmin;
+  width: 7vmin;
   position: absolute;
-  margin-left: 50%;
-  width: 20%;
-}
-
-#footeradmin {
-  font-size: 2.2vmin;
-  font-family: sans-serif;
-  color: white;
-  bottom: 2vmin;
-  position: absolute;
+  bottom: 0;
+  right: 1vw;
 }
 
 #footerimglink {
   height: 7vmin;
   width: 7vmin;
-  float:left;
-  padding: 8vmin 1vmin 0 3vmin;
+  position: absolute;
+  bottom: 0;
+  right: 5vw;
 }
+
+#footerinfo {
+  font-size: 2.2vmin;
+  font-family: sans-serif;
+  color: white;
+  float: left;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 
 #SI {
   height: 10vmin;
   width: 10vmin;
-  float:right;
   padding-top: 2vmin;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 a {
@@ -163,13 +161,11 @@ a {
 
 #login {
   float: left;
-  height: 100vh;
   width: 49.9%;
 }
 
 #signup {
   float: left;
-  height: 100vh;
   width: 50%;
 }
 
@@ -220,7 +216,7 @@ a {
 }
 
 
-#btnLogin, #btnSignup, #btnSend, #btnNext {
+#btnLogin, #btnSignup, #btnSend, #btnNext, #Button1 {
   display: block;
   margin: 1vmin auto;
   padding: 2vmin;
@@ -662,4 +658,23 @@ clear: both;
   height: 60vh;
   position: relative;
   margin-left: 25vw;
+}
+
+#tbxYourMail, #tbxYourPass, #tbxToMail, #tbxSubject, #tbxMessage {
+
+    display: block;
+    box-sizing: border-box;
+    width: 80%;
+    padding: 2vmin 1vmin 2vmin 4vmin;
+    margin: 3VH auto;
+    border: 1px solid #95a5a6;
+    outline: none;
+    border-radius: 4px;
+    font-size: 2vmin;
+}
+
+#tbxYourMail:focus, #tbxYourPass:focus, #tbxToMail:focus, #tbxSubject:focus, #tbxMessage:focus {
+    border: 1px solid #34495e;
+    box-shadow: 0 0 10px #34495e, 0 0 10px #34495e;
+    transition: 0.5s;
 }

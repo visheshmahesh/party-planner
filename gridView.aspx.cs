@@ -23,7 +23,7 @@ public partial class gridView : System.Web.UI.Page
         {
             Session["UserName"] = null;
             Session["UserId"] = null;
-            Response.Redirect("Login.aspx");
+         //   Response.Redirect("Login.aspx");
         }
 
 

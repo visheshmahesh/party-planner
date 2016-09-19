@@ -58,7 +58,7 @@
 </fieldset>
            	<fieldset>
                     <label id="addlabel">SELECT VENUE</label>
-              		<button type="button" id="change"onclick="Change()">VIEW VENUE</button>
+              		<asp:Button ID="change" runat="server" Text="VIEW VENUE" OnClick="change_Click"></asp:Button>
 
            <asp:DropDownList ID="ddlVenue" runat="server" AutoPostBack="true">
               <asp:ListItem Text="Country inn" Value="4"></asp:ListItem>
@@ -83,7 +83,12 @@
 				<img src="../assets/images/placeholder.png" id="venuepic"><p id="venuedesc">  </p>
 			</div>
 		</fieldset>
-            
+
+		<fieldset>
+			<label id="addlabel">VENUE ID</label>
+           <asp:TextBox ID="tbxVenueId" type="text" runat="server"></asp:TextBox>
+          </fieldset>
+
 		<fieldset>
 			<label id="addlabel">EVENT DATE</label>
            <asp:TextBox ID="tbxDate" type="date" runat="server"></asp:TextBox>

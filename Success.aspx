@@ -35,7 +35,7 @@
     <h1>YOU HAVE SUCCESSFULLY PLANNED YOUR PARTY!</h1><br />
     <div style="margin-left:27vw;">
     <p>In case you missed something-<br /><br />
-        <a href="createUpdate.aspx" style="color:#34495e">Click here to Update Event details</a> |
+        <a href="updateEvent.aspx" style="color:#34495e">Click here to Update Event details</a> |
 	<a href="InvitationSender.html" style="color:#34495e">Click here to Generate Invitations</a></p><br />
         </div>
 <div id="footer">

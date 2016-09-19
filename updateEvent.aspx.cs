@@ -12,6 +12,19 @@ public partial class updateEvent : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        int temp;
+        SqlConnection conn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
+        conn1.Open();
+
+        string checkEmail = "select count(*) from EVENT_DETAILS where UserId='" + Session["UserId"] + "'";
+        SqlCommand cmdEmail = new SqlCommand(checkEmail, conn1);
+        temp = Convert.ToInt32(cmdEmail.ExecuteScalar().ToString());
+        conn1.Close();
+        if(temp==0)
+        {
+          //  Response.Redirect("createUpdate.aspx");
+        }
+
         if (!IsPostBack)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
@@ -63,6 +76,15 @@ public partial class updateEvent : System.Web.UI.Page
         cmd1.Parameters.AddWithValue("@cake", this.rbCake.SelectedValue.ToString());
         cmd1.ExecuteNonQuery();
         conn.Close();
+        Response.Redirect("Success.aspx");
 
     }
+    protected void change_Click(object sender, EventArgs e)
+    {
+        string VenueId;
+        VenueId = this.ddlVenue.SelectedValue.ToString();
+
+        tbxVenueId.Text = VenueId;
+    }
+
 }
