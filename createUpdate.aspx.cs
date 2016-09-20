@@ -9,6 +9,13 @@ public partial class createUpdate : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
+
+
+            lblWelcome.Text += Session["UserName"].ToString();
+        }
+ 
         if (Session["UserName"] != null || Session["UserId"] != null)
         {
 

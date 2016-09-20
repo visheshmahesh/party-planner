@@ -21,12 +21,14 @@
 <div id="logstatus">
 			<p id="text2">
 
-				<img src="../assets/images/userdp.svg" height="30%" width="30%" alt="userdp"><br/>
+			   	<img src="../assets/images/userdp.svg" height="30%" width="30%" alt="userdp"><br/>
 
 
-                      <form id="form1" runat="server">
-
-                 <asp:Button ID="btnlogout" runat="server" Text="LOG OUT" OnClick="btnlogout_Click" />      
+                  <form id="form1" runat="server">
+                                   <asp:Label ID="lblWelcome" runat="server" Text="WELCOME " style="font-family:sans-serif; position:absolute; top:18vh; right:6vw;" ></asp:Label>
+             <asp:Label ID="Label1" runat="server" Text="WELCOME " style="font-family:sans-serif; position:absolute; top:18vh; right:6vw;" ></asp:Label>
+                 <asp:Button ID="btnlogout" runat="server" Text="LOG OUT" OnClick="btnlogout_Click" />  
+    
 			</p>
 </div>
 
@@ -58,9 +60,8 @@
 </fieldset>
            	<fieldset>
                     <label id="addlabel">SELECT VENUE</label>
-              		<asp:Button ID="change" runat="server" Text="VIEW VENUE" OnClick="change_Click"></asp:Button>
 
-           <asp:DropDownList ID="ddlVenue" runat="server" AutoPostBack="true">
+                              <asp:DropDownList ID="ddlVenue" runat="server" AutoPostBack="true">
               <asp:ListItem Text="Country inn" Value="4"></asp:ListItem>
               <asp:ListItem Text="Eden lawn" Value="5"></asp:ListItem>
               <asp:ListItem Text="Grandsaph" Value="7"></asp:ListItem>
@@ -78,16 +79,16 @@
               <asp:ListItem Text="Krome" Value="19"></asp:ListItem>
               <asp:ListItem Text="Opera" Value="20"></asp:ListItem>
            </asp:DropDownList>
+
+                   <input type="button" id="change" value="View Venue"  onclick="Change()" />
+                    <asp:Button ID="change" runat="server" Text="SELECT" OnClick="change_Click" ></asp:Button>
+
+
         <!--   <asp:RequiredFieldValidator ID="RequiredFieldValidatorVenue" runat="server" controltovalidate="ddlVenue" ErrorMessage="Venue is required" ForeColor="red"></asp:RequiredFieldValidator> -->
 			<div id="venueinfo">
 				<img src="../assets/images/placeholder.png" id="venuepic"><p id="venuedesc">  </p>
 			</div>
 		</fieldset>
-
-		<fieldset>
-			<label id="addlabel">VENUE ID</label>
-           <asp:TextBox ID="tbxVenueId" type="text" runat="server"></asp:TextBox>
-          </fieldset>
 
 		<fieldset>
 			<label id="addlabel">EVENT DATE</label>
@@ -140,7 +141,11 @@
 
                 <asp:Button ID="btnBookNow" runat="server" Text="UPDATE DETAILS" OnClick="btnNext_Click" />       
     </div>
+    <aside id="sidebar">
+                                  <asp:TextBox ID="tbxVenueId" type="text" runat="server" ClientIDMode="Static" style="visibility:hidden;"></asp:TextBox>
     </form>
+
+</aside>
     
 <div id="footer">
 	<div id="footertext">

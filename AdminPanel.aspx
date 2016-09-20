@@ -22,6 +22,7 @@
 			<p id="text2">
 				<img src="./assets/images/userdp.svg" height="30%" width="30%" alt="userdp"><br/>
                     <form id="form1" runat="server">
+                                     <asp:Label ID="lblWelcome" runat="server" Text="WELCOME " style="font-family:sans-serif; position:absolute; top:18vh; right:6vw;" ></asp:Label>
 
                                  <asp:Button ID="btnlogout" runat="server" Text="LOG OUT" OnClick="btnlogout_Click" />       
 

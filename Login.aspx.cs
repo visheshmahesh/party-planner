@@ -99,6 +99,7 @@ public partial class Login : System.Web.UI.Page
         try
         {
             int UserId = 0, temp;
+            string UserName;
             if(tbxPassword.Text== "" || tbxConfirmPassword.Text == "" || tbxEmail.Text== "" || tbxName.Text== "" || tbxDOB.Text=="")
             {
                 Response.Write("<script>alert('Please Enter All The Details')</script>");
@@ -132,11 +133,17 @@ public partial class Login : System.Web.UI.Page
 
                     cmd.Parameters.AddWithValue("@dob", tbxDOB.Text);
                  //   cmd.Parameters.AddWithValue("@UserType", ddlLoginAs.SelectedValue.ToString());
-                    UserId = Convert.ToInt32(cmd.ExecuteNonQuery());
+                    cmd.ExecuteNonQuery();
                     string forUserId = "select UserId from USERS where Email='" + tbxEmail.Text + "'";
                     SqlCommand cmdUserId = new SqlCommand(forUserId, conn);
                     UserId = Convert.ToInt32(cmdUserId.ExecuteScalar().ToString());
                     Session["UserId"] = UserId;
+
+                    string forUserName = "select Name from USERS where Email='" + tbxEmail.Text + "'";
+                    SqlCommand cmdUserName = new SqlCommand(forUserName, conn);
+                    UserName = cmdUserName.ExecuteScalar().ToString();
+                    Session["UserName"] = UserName;
+
 
                     conn.Close();
                     Response.Write("registered successfully");

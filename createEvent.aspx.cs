@@ -12,9 +12,11 @@ public partial class createEvent : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       if(Session["UserName"]!=null|| Session["UserId"] != null)
-        {
 
+     
+       if (Session["UserName"]!=null|| Session["UserId"] != null)
+        {
+           
         }
        else
         {
@@ -24,6 +26,11 @@ public partial class createEvent : System.Web.UI.Page
         }
         if (!IsPostBack)
         {
+           
+           
+                lblWelcome.Text += Session["UserName"].ToString();
+            
+           
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
             DataSet ds = new DataSet();
             try

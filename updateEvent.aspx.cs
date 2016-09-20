@@ -22,11 +22,12 @@ public partial class updateEvent : System.Web.UI.Page
         conn1.Close();
         if(temp==0)
         {
-          //  Response.Redirect("createUpdate.aspx");
+            Response.Redirect("createUpdate.aspx");
         }
 
         if (!IsPostBack)
         {
+            lblWelcome.Text += Session["UserName"].ToString();
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SignupConnectionString"].ConnectionString);
 
             DataTable dt = new DataTable();

@@ -6,9 +6,6 @@
 <head runat="server">
     <title></title>
     		<link rel="stylesheet" href="../css/content.css">
-    <script type="text/javascript" language="javascript" src="Scripts/AjaxCall.js"></script>
-                        
-
 
 </head>
 <body>
@@ -28,6 +25,7 @@
 
 
                       <form id="form1" runat="server">
+             <asp:Label ID="lblWelcome" runat="server" Text="WELCOME " style="font-family:sans-serif; position:absolute; top:18vh; right:6vw; " ></asp:Label>
 
                  <asp:Button ID="btnlogout" runat="server" Text="LOG OUT" OnClick="btnlogout_Click" />      
 			</p>
@@ -57,21 +55,19 @@
 		    </fieldset>
            	<fieldset>
                     <label id="addlabel">SELECT VENUE</label>
-              		<asp:Button ID="change" runat="server" Text="VIEW VENUE" OnClick="change_Click"></asp:Button>
-
-           <asp:DropDownList ID="ddlVenue" runat="server" AutoPostBack="true">
+                   
+           <asp:DropDownList ID="ddlVenue" runat="server" AutoPostBack="true" >
            </asp:DropDownList>
+                   <input type="button" id="change" value="View Venue"  onclick="Change()" />
+                    <asp:Button ID="change" runat="server" Text="SELECT" OnClick="change_Click" ></asp:Button>
+
          <!--   <asp:RequiredFieldValidator ID="RequiredFieldValidatorVenue" runat="server" controltovalidate="ddlVenue" ErrorMessage="Venue is required" ForeColor="red"></asp:RequiredFieldValidator>-->
 			<div id="venueinfo">
 				<img src="../assets/images/placeholder.png" id="venuepic"><p id="venuedesc">  </p>
 			</div>
+
 		</fieldset>
 
-		<fieldset>
-			<label id="addlabel">VENUE ID</label>
-           <asp:TextBox ID="tbxVenueId" type="text" runat="server"></asp:TextBox>
-         <!--   <asp:RequiredFieldValidator ID="RequiredFieldValidatorVenueId" runat="server" controltovalidate="tbxVenueId" ErrorMessage="Date is required" ForeColor="red"></asp:RequiredFieldValidator>-->
-          </fieldset>
 
 
 
@@ -127,12 +123,13 @@
                 
 
         </div>
-    </form>
- 
     
 <aside id="sidebar">
+                                  <asp:TextBox ID="tbxVenueId" type="text" runat="server" ClientIDMode="Static" style="visibility:hidden;"></asp:TextBox>
 
 </aside>
+        </form>
+ 
 
 <div id="footer">
 	<div id="footertext">
