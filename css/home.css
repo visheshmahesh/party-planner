@@ -7,7 +7,7 @@ body {
   height: 100vh;
   background-color: #34495e;
 	background-image: url("../assets/images/confetti.svg"), url("../assets/images/p1.svg"), url("../assets/images/p2.svg"), url("../assets/images/p3.svg");
-  background-size: auto, 220px 220px, 110px, 110px, 30px 30px;
+  background-size: cover, 220px 220px, 110px, 110px, 30px 30px;
   background-repeat: no-repeat, repeat, repeat, repeat;
 	position: relative;
 	z-index:-1;
@@ -15,10 +15,10 @@ body {
 }
 
 @keyframes poppers {
-  0% {background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px;}
-  25% {background-position: 0px 0px, 60px 500px, 10px 400px, -50px 150px;}
-  75% {background-position: 0px 0px, 0px 1000px, 80px 800px, -100px 300px;}
-  100% {background-position: 0px 0px, 20px 1500px, 0px 1000px, -200px 600px;}
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;}
+  25% {background-position: 0px 0px, 60px 500px, 10px 400px, -50px 150px, 0px 0px;}
+  75% {background-position: 0px 0px, 0px 1000px, 80px 800px, -100px 300px, 0px 0px;}
+  100% {background-position: 0px 0px, 20px 1500px, 0px 1000px, -200px 600px, 0px 0px;}
 }
 
 @font-face {
@@ -50,9 +50,9 @@ body {
 #hinttext {
   text-align: center;
   font-size: 5vmin;
-  font-family: Paralines;
-  color: white;
+  font-family: 'Dosis', sans-serif;
   animation: blink 4s linear infinite;
+  color: white;
   padding-top: 20vmin;
 }
 

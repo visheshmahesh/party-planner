@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 222 224" style="enable-background:new 0 0 222 224;" xml:space="preserve">
+	 viewBox="0 0 71.1 64" style="enable-background:new 0 0 71.1 64;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#E74C3C;}
 	.st1{fill:#3498DB;}
@@ -16,28 +16,21 @@
 <g id="Layer_1_1_">
 	<g>
 		<g>
-			
-				<image style="overflow:visible;opacity:0.44;" width="228" height="230" xlink:href="CECB1469.png"  transform="matrix(1 0 0 1 -3 -3)">
-			</image>
 			<g>
 				<g>
-					<polygon class="st0" points="44.4,10.5 41,9.6 38.3,11.9 38.1,8.4 35.1,6.6 38.4,5.3 39.3,1.9 41.5,4.6 45,4.3 43.1,7.3 					
+					<polygon class="st0" points="12.4,0.9 11.3,0.7 10.4,1.3 10.3,0.3 9.4,-0.2 10.4,-0.6 10.7,-1.6 11.4,-0.8 12.6,-0.9 12,0 
+											"/>
+					<polygon class="st1" points="32.8,57.4 31.7,57.2 30.8,57.8 30.8,56.8 29.8,56.3 30.9,55.9 31.2,54.9 31.9,55.7 33,55.6 
+						32.4,56.5 					"/>
+					<polygon class="st2" points="14,28.2 13.7,27.1 12.6,26.8 13.6,26.2 13.6,25.1 14.5,25.8 15.7,25.4 15.3,26.5 16,27.4 
+						14.8,27.3 					"/>
+					<polygon class="st3" points="60.3,1.4 59.9,0.4 58.8,0 59.8,-0.6 59.8,-1.7 60.8,-1 61.9,-1.3 61.5,-0.3 62.2,0.6 61,0.6 					
 						"/>
-					<polygon class="st1" points="107.4,204.4 104,203.5 101.3,205.8 101.2,202.3 98.1,200.4 101.4,199.2 102.3,195.7 104.5,198.5 
-						108,198.2 106.1,201.1 					"/>
-					<polygon class="st2" points="49.5,104 48.5,100.4 45,99.2 48.1,97.2 48.1,93.5 51,95.8 54.6,94.6 53.3,98.1 55.5,101.2 
-						51.7,101 					"/>
-					<polygon class="st3" points="192,12.2 190.9,8.6 187.4,7.4 190.5,5.3 190.5,1.6 193.5,3.9 197,2.8 195.7,6.3 197.9,9.3 
-						194.2,9.2 					"/>
-					<circle class="st4" cx="194.8" cy="60.8" r="5.3"/>
-					
-						<ellipse transform="matrix(0.7071 -0.7071 0.7071 0.7071 -113.5502 51.4567)" class="st5" cx="5.3" cy="162.8" rx="3.7" ry="3.7"/>
-					
-						<rect x="109.6" y="43.1" transform="matrix(0.7359 -0.6771 0.6771 0.7359 -1.7529 89.0405)" class="st6" width="7.3" height="7.3"/>
-					
-						<rect x="207.9" y="209.8" transform="matrix(0.7359 -0.6771 0.6771 0.7359 -88.6426 199.6192)" class="st7" width="7.3" height="7.3"/>
-					
-						<rect x="151.9" y="125.3" transform="matrix(0.7359 -0.6771 0.6771 0.7359 -46.2154 139.3834)" class="st8" width="7.3" height="7.3"/>
+					<ellipse class="st4" cx="61.2" cy="15.6" rx="1.7" ry="1.5"/>
+					<path class="st5" d="M-1.2,44.5c0.5-0.4,1.2-0.4,1.7,0s0.5,1.1,0,1.5s-1.2,0.4-1.7,0S-1.6,45-1.2,44.5z"/>
+					<polygon class="st6" points="33.1,11.4 34.8,10 36.4,11.6 34.7,13 					"/>
+					<polygon class="st7" points="65,60 66.7,58.6 68.3,60.1 66.6,61.6 					"/>
+					<polygon class="st8" points="46.8,35.4 48.5,33.9 50.1,35.5 48.4,36.9 					"/>
 				</g>
 			</g>
 		</g>

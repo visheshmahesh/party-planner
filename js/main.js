@@ -9,7 +9,7 @@ var y, header;
 function parallax () {
   y = window.pageYOffset;
   header = document.getElementById('header');
-  header.style.top = y * 0.5 + 'px';
+  header.style.top = y*0.6 + 'px';
 }
 
 // SCRIPT FOR HIDING HINT TEXT ON SCROLL //
@@ -30,20 +30,70 @@ function Change() {
   document.getElementById("venuepic").style.width = "40vmin";
   document.getElementById("venuepic").style.height = "40vmin";
   document.getElementById("venuepic").style.transition = "0.5s";
-  if (x==0) {
-    document.getElementById("venuedesc").innerHTML = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sollicitudin varius massa. Curabitur mattis semper lorem id tempus. Phasellus nec tellus vel nibh faucibus luctus. Vestibulum sit amet sapien turpis. Proin placerat pretium lectus ac molestie. Phasellus mollis mi sed enim dignissim blandit. Nunc hendrerit mattis lectus quis blandit. In a tortor vel tortor volutpat laoreet. Nam tristique arcu a massa dignissim, in eleifend nibh ultricies.";
-    document.getElementById("venuepic").src = "../assets/images/venue/delhi/grandsaph.jpg";
-    console.log("yes");
+  if (x==4) {
+    document.getElementById("venuedesc").innerHTML = " From the";
+    document.getElementById("venuepic").src = "../assets/images/venue/delhi/countryinn.jpg";
 
   }
-  else if (x==1) {
-    document.getElementById("venuedesc").innerHTML = "WORKING2";
+  else if (x==5) {
+    document.getElementById("venuedesc").innerHTML = "Open ";
+    document.getElementById("venuepic").src = "../assets/images/venue/delhi/edenlawn.jpg";
   }
-  else if (x==2) {
-    document.getElementById("venuedesc").innerHTML = "WORKING3";
+  else if (x==6) {
+    document.getElementById("venuedesc").innerHTML = "45 min. ";
+    document.getElementById("venuepic").src = "../assets/images/venue/delhi/grandsaph.jpg";
   }
-  else if (x==3) {
-    document.getElementById("venuedesc").innerHTML = "WORKING4";
+  else if (x==7) {
+    document.getElementById("venuedesc").innerHTML = "Le Ga ";
+    document.getElementById("venuepic").src = "../assets/images/venue/delhi/legarden.jpg";
+  }
+  else if (x==8) {
+    document.getElementById("venuedesc").innerHTML = "Mandap The";
+    document.getElementById("venuepic").src = "../assets/images/venue/ghaziabad/mandap.jpg";
+  }
+  else if (x==9) {
+    document.getElementById("venuedesc").innerHTML = "The eart ";
+    document.getElementById("venuepic").src = "../assets/images/venue/ghaziabad/pindbaluchi.jpg";
+  }
+  else if (x==10) {
+    document.getElementById("venuedesc").innerHTML = "ROYAL PALACE i";
+    document.getElementById("venuepic").src = "../assets/images/venue/ghaziabad/royalpalace.jpg";
+  }
+  else if (x==11) {
+    document.getElementById("venuedesc").innerHTML = "With a seating  ";
+    document.getElementById("venuepic").src = "../assets/images/venue/ghaziabad/tangerine.jpg";
+  }
+  else if (x==12) {
+    document.getElementById("venuedesc").innerHTML = "Concore Greno ";
+    document.getElementById("venuepic").src = "../assets/images/venue/noida/greno.jpg";
+  }
+  else if (x==13) {
+    document.getElementById("venuedesc").innerHTML = "At Silver Leaf,    ";
+    document.getElementById("venuepic").src = "../assets/images/venue/noida/openterr.jpg";
+  }
+  else if (x==14) {
+    document.getElementById("venuedesc").innerHTML = "Spize Noth ";
+    document.getElementById("venuepic").src = "../assets/images/venue/noida/spice.jpg";
+  }
+  else if (x==15) {
+    document.getElementById("venuedesc").innerHTML = "With Fast Delivery  ";
+    document.getElementById("venuepic").src = "../assets/images/venue/noida/thefizz.jpg";
+  }
+  else if (x==16) {
+    document.getElementById("venuedesc").innerHTML = "Hotel Harmony    ";
+    document.getElementById("venuepic").src = "../assets/images/venue/meerut/harmony.jpg";
+  }
+  else if (x==17) {
+    document.getElementById("venuedesc").innerHTML = "JP Resort is";
+    document.getElementById("venuepic").src = "../assets/images/venue/meerut/jpresort.jpg";
+  }
+  else if (x==18) {
+    document.getElementById("venuedesc").innerHTML = "Meerut Hotel Krome";
+    document.getElementById("venuepic").src = "../assets/images/venue/meerut/krome.jpg";
+  }
+  else if (x==19) {
+    document.getElementById("venuedesc").innerHTML = "With lavish gardens";
+    document.getElementById("venuepic").src = "../assets/images/venue/meerut/opera.jpg";
   }
 }
 
